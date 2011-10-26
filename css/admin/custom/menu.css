@@ -1,0 +1,272 @@
+/* Menu do topo */
+#menuTop {
+	margin-left: 2px;
+    /* false value for WinIE4/5 */
+    voice-family: "\"}\"";   
+    /* trick WinIE4/5 into thinking rule is over */
+    voice-family: inherit;   
+    /* recover from trick */
+    /* intended value for better browsers */
+	padding: 0;
+	margin-top: -27px;    
+    margin-bottom: 35px;
+}
+
+#menuTop ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+/*	background-color: #000;*/	
+}
+
+#menuTop ul li {
+	float: left;
+	height: 27px;
+	padding: 0;
+	margin: 0; 
+	margin-right: 7px;
+}
+
+#menuTop ul li a {
+	color: #ffffff;
+	text-decoration: none;
+	line-height: 27px;
+	padding-left: 5px;
+	padding-right: 5px;	
+	display: run-in;
+}
+
+#menuTop ul li a:hover {
+        text-decoration: underline;
+}
+
+#menuTop ul li.selected {
+	background-image: url(../../../images/admin/menuTop_left_selected.png);
+}
+
+#menuTop ul li.selected a {
+	color: #ffffff;
+	font-weight: bold;
+}
+
+#menuTop ul li div.rcorner {
+	float: left;
+}
+
+#menuTop ul li.selected div.rcorner {
+	float: left;
+}
+	
+
+#menuTop ul li div.rcorner {
+	float: left;
+	padding-left: 7px;
+	padding-right: 7px;
+}
+
+#menuTop ul li.selected div.rcorner {
+	float: left;
+	padding-left: 7px;	
+	padding-right: 7px;	
+}
+	
+
+#menuTop ul li div.rcorner {
+	float: left;
+	padding-left: 7px;
+	padding-right: 7px;
+}
+
+#menuTop ul li.selected div.rcorner {
+	float: left;
+	padding-left: 7px;	
+	padding-right: 7px;	
+}
+	
+
+#menuTop ul li div.rcorner {
+	float: left;
+	padding-left: 7px;
+	padding-right: 7px;
+}
+
+#menuTop ul li.selected div.rcorner {
+	float: left;
+	padding-left: 7px;	
+	padding-right: 7px;	
+}
+	
+
+#menuTop ul li div.rcorner {
+	float: left;
+	padding-left: 7px;
+	padding-right: 7px;
+}
+
+#menuTop ul li.selected div.rcorner {
+	float: left;
+	padding-left: 7px;	
+	padding-right: 7px;	
+}
+	
+
+#menuTop ul li div.rcorner {
+	float: left;
+	padding-left: 7px;
+	padding-right: 7px;
+}
+
+#menuTop ul li.selected div.rcorner {
+	float: left;
+	padding-left: 7px;	
+	padding-right: 7px;	
+}
+	
+
+#menuTop ul li div.rcorner {
+	float: left;
+	padding-left: 7px;
+	padding-right: 7px;
+}
+
+#menuTop ul li.selected div.rcorner {
+	float: left;
+	padding-left: 7px;	
+	padding-right: 7px;	
+}
+
+#menu-left {
+    padding: 0px;
+    padding-top: 31px;
+    height: 400px;
+    margin: 0px;
+}
+
+#menu-left ul {
+    list-style-image:none;
+    list-style-position:outside;
+    list-style-type:none;
+    padding: 0px;
+    padding-bottom:10px;
+    padding-left:10px;
+    padding-top:5px;
+    margin: 0px;
+    width:172px;
+}
+
+#menu-left ul li {
+    padding: 0px;
+margin: 0px;
+line-height: 12px;
+}
+
+#menu-left ul li:first-child {
+border-top:1px solid #ccc;
+padding: 0px;
+margin: 0px;
+}
+
+#menu-left ul li a {
+display: block;
+padding: 4px;
+margin: 0px;
+text-decoration:none;
+color: #666;
+border-bottom:1px solid #ccc;
+}
+
+#menu-left ul li:hover {
+background-color:#F0F0F0;
+color:#000000;
+}
+
+#menu-left li.selected {
+background-color:#F0F0F0;
+font-weight:bold;
+padding: 0px;
+margin: 0px;
+}
+
+#menu-left ul li a {
+font-weight:normal;
+padding-left:12px;
+}
+
+#menu-left ul li.selected a {
+font-weight: bold;
+}
+
+#menu-subtop ul {
+	background: none;
+        background-image: url(../../../images/admin/heading-back.png);
+	background-position: bottom left;
+	background-repeat: no-repeat;
+	list-style: none;
+        border-right: 1px solid #ccc;
+	padding-left: 26px;
+        font-weight: bold;
+        color: #656565;
+        margin: 0;
+	margin-bottom: 12px;
+        line-height: 24px;
+        display: block;
+	width: inherit;
+	height: 24px;
+}
+
+#menu-subtop ul li {
+	margin: 0;
+	float: left;
+	padding-left: 8px;
+	padding-right: 8px;
+}
+
+#menu-subtop ul li a {
+        text-decoration: none;
+	font-weight: normal;
+	color: #666;
+}	
+
+#menu-subtop ul li.selected {
+	float: left;
+	background-color: #fff;
+        border-top: 1px solid #a6a6a6;
+	border-left: 1px solid #a6a6a6;
+	border-right: 1px solid #a6a6a6;
+	height: 23px;
+}
+
+#menu-subtop ul li.selected a {
+        text-decoration: none;
+	font-weight: bold;
+        color: #666;
+}
+/* Menu lateral */
+.menu {
+	list-style: none;
+	padding-top: 5px;
+	width: 170px;
+    margin: 0;
+    padding: 0;
+}
+.menu li {
+	float: left;
+	width: 100%;
+	padding: 4px;
+}
+.menu li.imgArrow {
+	background: url(../../../images/admin/ico_seta.gif) no-repeat center left;
+	padding-left: 16px;
+}
+.menu li a:link, 
+.menu li a:visited, 
+.menu li a:hover, 
+.menu li a:active {
+	color:#000000;
+    text-decoration:none;
+}
+.menu li a:hover, 
+.menu li a:active {
+	color:#4B63CA;
+    text-decoration:underline;
+}

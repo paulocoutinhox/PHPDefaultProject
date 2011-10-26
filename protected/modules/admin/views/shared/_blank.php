@@ -1,0 +1,1 @@
+<?php echo($this->renderPartial('/shared/_messages')); ?>

@@ -1,0 +1,139 @@
+.datagrid {
+	width:100%;
+    border-bottom:1px solid #B3B3B3 !important;
+	padding:0;
+	border-spacing:0; 	
+}
+
+.datagrid tr.header,
+.datagrid tr.header:hover {
+	background:#4e84bc url(header_datagrid.png) repeat-x;
+	height:24px;
+}
+
+.datagrid th {
+	color:#4E75AA;
+	font-weight:bold;
+	padding:0px 4px;
+	border-bottom:1px solid #B3B3B3 !important;
+	border-right:1px solid #B3B3B3 !important;
+	font-family:Arial,Verdana,Helvetica,sans-serif;
+	font-size:11px;
+}
+
+.datagrid td {
+	color:#333333;
+	border:none;
+	font-weight:400!important;
+	padding:4px!important;
+	font-family:Arial,Verdana,Helvetica,sans-serif;
+	font-size:11px;
+}
+
+.datagrid td a {
+	font-weight:lighter;
+}
+
+.datagrid td.firstColumn {
+	border-left:none;
+}
+
+.datagrid tr.totalizer {
+	font-weight:700;
+	background-color:#F3F3F3;
+}
+
+.datagrid tr.alt {
+	background-color:#e4ecf5;
+}
+
+.datagrid tr td {
+	border-bottom:1px dotted #999!important;
+}
+
+.datagrid tr:hover {
+	background-color:#EAEAEA;
+}
+
+.datagrid th a,
+.datagrid th a:hover {
+	color:#FFF;
+	text-decoration:underline;
+}
+
+.datagrid tr.noResult td {
+	color:#2767ae;
+}
+
+.datagrid td a,
+.datagrid td a:visited,
+.datagrid td a:hover,
+.datagrid td a:active {
+	color:#2767ae;
+	text-decoration:none;
+}
+
+.datagrid th.alignLeft,
+.datagrid td.alignLeft {
+	text-align:left;
+}
+
+.datagrid th.alignCenter,
+.datagrid td.alignCenter {
+	text-align:center;
+}
+
+.datagrid th.alignRight,
+.datagrid td.alignRight {
+	text-align:right;
+}
+
+.datagrid th.fontBold,
+.datagrid td.fontBold {
+	font-weight:bold;
+}
+
+.datagrid th.noWrap,
+.datagrid td.noWrap {
+	white-space:nowrap;
+}
+
+.datagrid th.upperCase,
+.datagrid td.upperCase {
+	text-transform:uppercase;
+}
+
+.datagrid th.lowerCase,
+.datagrid td.lowerCase {
+	text-transform:lowercase;
+}
+
+.datagrid th.capitalized,
+.datagrid td.capitalized {
+	text-transform:capitalize;
+}
+
+.datagrid td.firstColumn {
+    border-left:1px solid #B3B3B3;
+}
+
+.datagrid td.lastColumn {
+    border-right:1px solid #B3B3B3;
+}
+
+.datagrid th.firstColumn {
+    border-left:1px solid #B3B3B3;
+}
+
+.datagrid th.lastColumn {
+    border-right:1px solid #B3B3B3;
+}
+
+.datagrid td.noResult {
+    border-bottom: 0 none !important;    
+}
+
+.datagrid tr.lastRow,
+.datagrid tr.lastRow td {
+    border-bottom: 0 none !important;
+}
