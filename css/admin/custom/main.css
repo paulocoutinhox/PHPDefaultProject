@@ -31,6 +31,14 @@ a:hover {
     color:#0066CC;
     text-decoration:none;
 }
+.error, .alert, .notice, .success, .info {
+    margin-bottom: inherit;
+    border: inherit;
+    background: inherit;
+    color: inherit;
+    border-color: inherit;
+    padding: 2px;
+}
 div.error, div.notice, .success
 {
     padding:.8em;
