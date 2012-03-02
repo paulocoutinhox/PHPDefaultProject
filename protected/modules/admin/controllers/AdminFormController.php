@@ -24,15 +24,20 @@ class AdminFormController extends AdminController
 	protected $formModelForSave;
 	protected $modelForUpdate;
 	protected $formModelForUpdate;
+    protected $modelForView;
 	
 	protected $renderData;
+
+    protected $criteriaForSearch;
 	
     public function actionIndex()
 	{
 		if ($this->beforeActionIndex() == true)
 		{
-			
-			$criteria               = new CDbCriteria();
+			if ($this->criteriaForSearch == null)
+            {
+                $this->criteriaForSearch = new CDbCriteria();
+            }
 
 			$model                  = new $this->model;
 			$this->formSearch       = new $this->formSeachModel;
@@ -44,8 +49,8 @@ class AdminFormController extends AdminController
 
 			$this->createParameters();
 
-			$criteria->condition = implode(' AND ', $this->arrConditions);
-			$criteria->params    = $this->arrParameters;
+            $this->criteriaForSearch->condition = implode(' AND ', $this->arrConditions);
+            $this->criteriaForSearch->params    = $this->arrParameters;
 
 			// cria parâmetros de ordenação para a pesquisa
 			foreach($this->orderFieldsForSearch as $key => $value)
@@ -56,20 +61,20 @@ class AdminFormController extends AdminController
 			$this->arrOrderDirection = ComponentsForSearch::listForOrder();
 			$this->arrRowCount       = ComponentsForSearch::listForRowCount();
 
-			ComponentsForSearch::paramsForSearchQuery($this->formSearch, $criteria, $this->arrParametersUrl, $this->orderFieldDefaultForSearch, $this->orderDirectionDefaultForSearch);
+			ComponentsForSearch::paramsForSearchQuery($this->formSearch, $this->criteriaForSearch, $this->arrParametersUrl, $this->orderFieldDefaultForSearch, $this->orderDirectionDefaultForSearch);
 
 			// cria paginação e limite de registros
-			$pagination = new CPagination( $model->count($criteria) );
+			$pagination = new CPagination( $model->count($this->criteriaForSearch) );
 			$pagination->setCurrentPage($this->formSearch->page-1);
 			$pagination->setPageSize($this->arrRowCount[$this->formSearch->rowCount]);
 
-			$criteria->offset = ($pagination->getCurrentPage() * $pagination->getPageSize());
-			$criteria->limit  = $pagination->getPageSize();
+            $this->criteriaForSearch->offset = ($pagination->getCurrentPage() * $pagination->getPageSize());
+            $this->criteriaForSearch->limit  = $pagination->getPageSize();
 
 			$pagination->params = $this->arrParametersUrl;
 
 			// cria objeto para o form
-			$list = $model->findAll($criteria);
+			$list = $model->findAll($this->criteriaForSearch);
 			
 			// dados a serem renderizados
 			$this->renderData = array(
@@ -107,20 +112,20 @@ class AdminFormController extends AdminController
 			{
 				// tenta instanciar objeto pelo ID recebido
 				$model = new $this->model;
-				$model = $model->findByPk($id);
+                $this->modelForView = $model->findByPk($id);
 
-				if (!$model)
+				if (!$this->modelForView)
 				{
 					UserUtil::getAdminWebUser()->setFlash(Constants::ERROR_MESSAGE_ID, ConstantMessages::invalidRegistry());
 					$this->redirect(array('/admin/' . $this->getId()));                    
 				} 
 				else
 				{
-					$model->clearErrors();
+                    $this->modelForView->clearErrors();
 					
 					$this->renderData = array(
 						'moduleTitle' => $this->moduleTitle,
-						'model'       => $model,
+						'model'       => $this->modelForView,
 					);
 					
 					if ($this->afterActionView() == true)
