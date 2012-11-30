@@ -32,10 +32,8 @@ $config = array(
         ),
 	),
 
-	// application components
 	'components' => array(
 		'user' => array(
-			// enable cookie-based authentication
 			'class'          => 'WebUser',
 			'allowAutoLogin' => true,
 			'stateKeyPrefix' => 'default_',
