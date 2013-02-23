@@ -2,19 +2,12 @@
 <html lang="pt-br">
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 	<title><?php echo ($this->pageTitle); ?></title>
 	
-	<!-- blueprint CSS framework -->
-	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->theme->baseUrl; ?>/css/blueprint/screen.css" media="screen, projection" />	
-	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->theme->baseUrl; ?>/css/blueprint/print.css" media="print" />
-	<!--[if lt IE 8]>
-	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->theme->baseUrl; ?>/css/blueprint/ie.css" media="screen, projection" />
-	<![endif]-->
-	
-	<link rel="stylesheet" href="<?php echo Yii::app()->theme->baseUrl; ?>/scripts/fancybox/jquery.fancybox.css" />
-	<link rel="stylesheet" href="<?php echo Yii::app()->theme->baseUrl; ?>/css/custom/pager.css" />
-	<link rel="stylesheet" href="<?php echo Yii::app()->theme->baseUrl; ?>/css/custom/form.css" />
-	<link rel="stylesheet" href="<?php echo Yii::app()->theme->baseUrl; ?>/css/custom/main.css" />
+	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->theme->baseUrl; ?>/libs/bootstrap/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="<?php echo Yii::app()->theme->baseUrl; ?>/css/main.css" />
 	
 	<link rel="shortcut icon" type="image/png" href="" />
 	
@@ -22,12 +15,8 @@
 		var BASE_URL = '<?php echo(Yii::app()->request->baseUrl); ?>';
 	</script>
 	
-	<script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl; ?>/scripts/jquery/jquery.js"></script>
-	<script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl; ?>/scripts/fancybox/jquery.fancybox.js"></script>
-	<script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl; ?>/scripts/jquery/jquery.form.js"></script>
-	<script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl; ?>/scripts/jquery/jquery.maskedinput.js"></script>
+	<script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl; ?>/scripts/jquery/jquery-1.9.1.min.js"></script>
 	<script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl; ?>/scripts/main.js"></script>
-	
 </head>
 <body>
 				
