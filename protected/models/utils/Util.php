@@ -55,7 +55,7 @@ class Util
 
 				$difference = $days + $partialDays;
 
-			break;
+				break;
 
 			case 'h':
 			case 'H':
@@ -67,7 +67,7 @@ class Util
 
 				$difference = $hours + ($days * 24) + $partialHours;
 
-			break;
+				break;
 
 			case 'm':
 			case 'M':
@@ -78,26 +78,26 @@ class Util
 
 				$difference = $minutes + ($days * 1440) + ($hours * 60) + $partialMinutes;
 
-			break;
+				break;
 
 			case 's':
 			case 'S':
 
 				$difference = $seconds + ($days * 86400) + ($hours * 3600) + ($minutes * 60);
 
-			break;
+				break;
 
 			case 'a':
 			case 'A':
 
 				$difference = array (
-				"days" => $days,
-				"hours" => $hours,
-				"minutes" => $minutes,
-				"seconds" => $seconds
+					"days" => $days,
+					"hours" => $hours,
+					"minutes" => $minutes,
+					"seconds" => $seconds
 				);
 
-			break;
+				break;
 		}
 
 		if ($difference && is_array($difference))
@@ -153,39 +153,39 @@ class Util
 	{
 		return '9999-12-31 23:59:59';
 	}
-	
+
 	public static function formatNumberToDatabase($number)
 	{
 		$number = str_replace('.', '', $number);
 		$number = str_replace(',', '.', $number);
 		return (float)$number;
 	}
-	
+
 	public static function generateShareUrl($type, $shareTitle, $shareURL)
 	{
 		$url = '';
-		
+
 		switch(strtolower($type))
 		{
 			case 'facebook':
 				$url = 'http://www.facebook.com/sharer.php?u=[url]&t=[title]';
-			break;
-		
+				break;
+
 			case 'twitter':
 				$url = 'http://twitter.com/share?url=[url]';
-			break;
-		
+				break;
+
 			case 'orkut':
 				$url = 'http://promote.orkut.com/preview?nt=orkut.com&du=[url]&tt=[title]&cn=';
-			break;
+				break;
 		}
-		
+
 		$url = str_replace('[url]', $shareURL, $url);
 		$url = str_replace('[title]', $shareTitle, $url);
-		
+
 		return $url;
 	}
-	
+
 	public static function configureMailer()
 	{
 		Yii::app()->mailer->Host        = Yii::app()->params['mailHost'];
@@ -198,21 +198,26 @@ class Util
 		Yii::app()->mailer->FromName    = Yii::app()->params['mailFromName'];
 		Yii::app()->mailer->SetLanguage = Yii::app()->params['mailLanguage'];
 		Yii::app()->mailer->CharSet     = Yii::app()->params['mailCharset'];;
-		
+
 		if (Yii::app()->params['mailSMTP'] == true)
 		{
 			Yii::app()->mailer->IsSMTP();
 		}
-		
+
 		Yii::app()->mailer->isHTML(true);
-		
+
 	}
-	
+
 	public static function generateToken()
 	{
 		return uniqid(null, true);
 	}
-	
+
+	public static function getDateTimeFromLocal()
+	{
+		return date('Y-m-d H:i:s');
+	}
+
 	public static function getFacebookPermissions()
 	{
 		return implode(',', Yii::app()->params['facebookPermissions']);

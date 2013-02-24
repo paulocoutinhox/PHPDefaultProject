@@ -6,7 +6,7 @@ class m110504_011352_create_customer_table extends CDbMigration
 	public function up()
     {
 		$this->createTable('customer', array(
-			'id'				 	  => 'bigint(20) NOT NULL AUTO_INCREMENT PRIMARY KEY',
+			'id'				 	  => 'bigint(20) unsigned NOT NULL AUTO_INCREMENT PRIMARY KEY',
 			'name'				 	  => 'varchar(50) NOT NULL',
 			'username'			 	  => 'varchar(255) NOT NULL',
 			'password'			 	  => 'varchar(255) NOT NULL',
@@ -18,6 +18,12 @@ class m110504_011352_create_customer_table extends CDbMigration
 			'activation_token'		  => 'varchar(255) DEFAULT NULL',
 			'recovery_password_token' => 'varchar(255) DEFAULT NULL',
 		), 'ENGINE=InnoDB');
+
+		$this->createIndex('username', 'customer', 'username', true);
+		$this->createIndex('email', 'customer', 'email', true);
+		$this->createIndex('status', 'customer', 'status');
+		$this->createIndex('activation_token', 'customer', 'activation_token');
+		$this->createIndex('recovery_password_token', 'customer', 'recovery_password_token');
 
 		$this->insert('customer', array(
 			'id'                 	  => '1',
