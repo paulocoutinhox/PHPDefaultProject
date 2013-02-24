@@ -145,7 +145,6 @@ class AdminFormController extends AdminController
 			
 		if ($this->beforeActionAdd() == true)
 		{
-
 			if ($this->getFormData() != null)
 			{
 				$this->formModelForSave->setAttributes($this->getFormData());
@@ -192,7 +191,6 @@ class AdminFormController extends AdminController
 			
 		if ($this->beforeActionUpdate() == true)
 		{
-		
 			if ($this->getFormData() != null)
 			{
 				$this->formModelForUpdate->setAttributes($this->getFormData());
@@ -254,7 +252,6 @@ class AdminFormController extends AdminController
 			{
 				$this->render($this->getAction()->getId(), $this->renderData);
 			}
-			
 		}
     }
 	    

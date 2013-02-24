@@ -39,5 +39,37 @@ class GroupsController extends AdminFormController
             $this->arrParametersUrl = array_merge($this->arrParametersUrl, array('description' => $this->formSearch->description));
         }
 	}
-	
+
+	protected function afterActionView()
+	{
+		$this->addToRenderData('permissions', Permission::model()->orderByModule()->findAll());
+		return parent::afterActionView();
+	}
+
+	protected function afterSaveModel()
+	{
+		Group::clearPermissions($this->modelForSave->id);
+		Group::addPermissions($this->modelForSave->id, Yii::app()->request->getParam('permissions', array()));
+		return parent::afterSaveModel();
+	}
+
+	protected function afterActionAdd()
+	{
+		$this->addToRenderData('permissions', Permission::model()->orderByModule()->findAll());
+		return parent::afterActionAdd();
+	}
+
+	protected function afterUpdateModel()
+	{
+		Group::clearPermissions($this->modelForUpdate->id);
+		Group::addPermissions($this->modelForUpdate->id, Yii::app()->request->getParam('permissions', array()));
+		return parent::afterUpdateModel();
+	}
+
+	protected function afterActionUpdate()
+	{
+		$this->addToRenderData('permissions', Permission::model()->orderByModule()->findAll());
+		return parent::afterActionUpdate();
+	}
+
 }
