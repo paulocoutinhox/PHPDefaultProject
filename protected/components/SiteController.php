@@ -30,11 +30,11 @@ class SiteController extends CController
 	{
 		if (UserUtil::getDefaultWebUser()->getIsGuest())
 		{
-			$this->currentUser = UserUtil::getDefaultWebUser()->getModel();
+			$this->currentUser = null;
 		}
 		else
 		{
-			$this->currentUser = null;
+			$this->currentUser = UserUtil::getDefaultWebUser()->getModel();
 		}
 		
 		$filterChain->run();
