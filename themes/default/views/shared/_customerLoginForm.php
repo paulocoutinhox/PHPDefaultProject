@@ -1,36 +1,37 @@
 <!-- login form -->
-<div class="form">
+<?php echo CHtml::beginForm($this->createUrl('/login'), 'post', array('id' => 'form')); ?>
 
-	<?php echo CHtml::beginForm($this->createUrl(''), 'post', array('id' => 'form')); ?>
+	<?php echo CHtml::errorSummary($form); ?>
 
-		<?php echo CHtml::errorSummary($form); ?>
-
-		<div class="row">
-			<?php echo CHtml::activeLabel($form, 'username'); ?>
-			<?php echo CHtml::activeTextField($form, 'username', array('style' => 'width: 300px;', 'class' => 'text', 'autocomplete' => 'off')); ?>
+	<form class="form-horizontal">
+		<div class="control-group">
+			<?php echo CHtml::activeLabel($form, 'username', array('class' => 'control-label')); ?>
+			<div class="controls">
+				<?php echo CHtml::activeTextField($form, 'username', array('style' => 'width: 260px;', 'autocomplete' => 'off')); ?>
+			</div>
 		</div>
-		
-		<div class="row">
-			<?php echo CHtml::activeLabel($form, 'password'); ?>
-			<?php echo CHtml::activePasswordField($form, 'password', array('style' => 'width: 300px;', 'class' => 'text', 'autocomplete' => 'off')); ?>
+		<div class="control-group">
+			<?php echo CHtml::activeLabel($form, 'password', array('class' => 'control-label')); ?>
+			<div class="controls">
+				<?php echo CHtml::activePasswordField($form, 'password', array('style' => 'width: 260px;', 'class' => 'text', 'autocomplete' => 'off')); ?>
+			</div>
 		</div>
-
-		<div class="row">
-			<ul>
-				<li>
+		<div class="control-group">
+			<div class="controls">
+				<p>
 					<a href="<?php echo($this->createUrl('/forgotPassword')); ?>" title="Esqueci a senha">Esqueci a senha</a>
-				</li>
-				<li>
-					<a href="<?php echo($this->createUrl('/register')); ?>" title="Ainda não sou cadastrado">Ainda não sou cadastrado</a>
-				</li>
-			</ul>
+				</p>
+				<p>
+					<a href="<?php echo($this->createUrl('/default')); ?>" title="Voltar">Voltar</a>
+				</p>
+			</div>
 		</div>
-	
-		<div class="row">
-			<?php echo CHtml::submitButton('Continuar'); ?>
+		<div class="control-group">
+			<div class="controls">
+				<?php echo CHtml::submitButton('Continuar', array('class' => 'btn')); ?>
+			</div>
 		</div>
+	</form>
 
-	<?php echo CHtml::endForm(); ?>
-
-</div>
+<?php echo CHtml::endForm(); ?>
 <!-- end: login form -->
