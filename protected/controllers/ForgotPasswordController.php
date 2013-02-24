@@ -43,7 +43,7 @@ class ForgotPasswordController extends SiteController
 					Yii::trace('Processo de recuperação de senha iniciado com sucesso (' . $form->email . ').');
 					
 					UserUtil::getDefaultWebUser()->setFlash(Constants::SUCCESS_MESSAGE_ID, 'As instruções para o processo de recuperação de senha foram enviadas para o e-mail informado.');
-					$this->redirect(array('/'));
+					$this->redirect(array('/default'));
 				}
 				else
 				{
@@ -64,7 +64,7 @@ class ForgotPasswordController extends SiteController
     public function actionLogout()
     {
         UserUtil::getDefaultWebUser()->logout();
-        $this->redirect(array('/'));
+        $this->redirect(array('/default'));
     }
     
 }

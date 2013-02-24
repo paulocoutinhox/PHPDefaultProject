@@ -12,7 +12,7 @@ class ContactController extends SiteController
 		if ($model == null)
 		{
 			UserUtil::getDefaultWebUser()->setFlash(Constants::ERROR_MESSAGE_ID, 'Tag não encontrada.');
-			$this->redirect(array('/'));
+			$this->redirect(array('/default'));
 		}
 		
 		if ($data)
@@ -38,7 +38,7 @@ class ContactController extends SiteController
 				}
 				
 				UserUtil::getDefaultWebUser()->setFlash(Constants::SUCCESS_MESSAGE_ID, 'Sua mensagem foi enviada com sucesso.');
-                $this->redirect(array('/'));
+                $this->redirect(array('/default'));
 			}
 			
 		}

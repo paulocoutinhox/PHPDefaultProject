@@ -20,8 +20,8 @@
 </head>
 <body>
 				
-	<div id="container">
-		<div id="content">
+	<div id="main-container">
+		<div id="main-content">
 			<?php $this->renderPartial('/shared/_messages'); ?>
 			<?php echo $content; ?>
 		</div>
