@@ -35,7 +35,7 @@ class AdminController extends CController
 			{
 				if(Yii::app()->request->isAjaxRequest)
 				{
-					$this->renderPartial('/shared/blank');
+					$this->renderPartial('/shared/_blank');
 					Yii::app()->end();
 				}
 				else
@@ -49,7 +49,7 @@ class AdminController extends CController
 
 				if(Yii::app()->request->isAjaxRequest)
 				{	    		
-					$this->renderPartial('/shared/blank');
+					$this->renderPartial('/shared/_blank');
 					Yii::app()->end();
 				}
 				else
