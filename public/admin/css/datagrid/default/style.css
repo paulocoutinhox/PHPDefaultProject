@@ -1,13 +1,14 @@
 .datagrid {
 	width:100%;
-    border-bottom:1px solid #B3B3B3 !important;
+    border-bottom:1px solid #B3B3B3;
+	border-top: 1px solid #B3B3B3;
 	padding:0;
 	border-spacing:0; 	
 }
 
 .datagrid tr.header,
 .datagrid tr.header:hover {
-	background:#4e84bc url(header_datagrid.png) repeat-x;
+	background: #eee;
 	height:24px;
 }
 
