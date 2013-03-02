@@ -57,7 +57,7 @@ $config = array(
 				),
 				array(
 					'class'     => 'ext.yii-debug-toolbar.YiiDebugToolbarRoute',
-					'ipFilters' => array('127.0.0.1', '::1'),
+					'ipFilters' => array(),
 				),
 			),
 		),		
@@ -67,7 +67,11 @@ $config = array(
 	    'mailer' => array(
 			'class'       => 'application.extensions.mailer.EMailer',
 			'pathViews'   => 'application.views.' . $theme. '.email.',
-			'pathLayouts' => 'application.views.' . $theme. '.email.layout.'
+			'pathLayouts' => 'application.views.' . $theme. '.email.layout.',
+		),
+		'assetManager' => array(
+			'class'    => 'application.components.AssetManager',
+			'basePath' => dirname(__FILE__) . '/../../public/assets/',
 		),
 	),
 
