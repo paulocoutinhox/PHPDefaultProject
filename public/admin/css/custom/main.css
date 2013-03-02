@@ -1,0 +1,486 @@
+/* Página */
+* {
+	margin: 0;
+	padding: 0;
+}
+body {
+	background-color:#FFFFFF;
+	color:#666666;
+	font-family:"Lucida Grande",Geneva,Arial,Verdana,sans-serif;
+	font-size:11px;
+	margin:0;
+	padding:0;
+}
+html, body {
+	height:100%;
+}
+img {
+	border:0;
+}
+table, tr, td {
+	padding: 0;
+}
+input, select {
+	padding: 2px;
+}
+a, a:visited {
+    color:#666666;
+    text-decoration:none;
+}
+a:hover {
+    color:#0066CC;
+    text-decoration:none;
+}
+.error, .alert, .notice, .success, .info {
+    margin-bottom: inherit;
+    border: inherit;
+    background: inherit;
+    color: inherit;
+    border-color: inherit;
+    padding: 2px;
+}
+div.error, div.notice, .success
+{
+    padding:.8em;
+    margin-bottom:1em;
+    border:2px solid #ddd;
+}
+
+div.error
+{
+    background:#FBE3E4;
+    color:#8a1f11;
+    border-color:#FBC2C4;
+}
+
+div.notice
+{
+    background:#FFF6BF;
+    color:#514721;
+    border-color:#FFD324;
+}
+
+div.success
+{
+    background:#E6EFC2;
+    color:#264409;
+    border-color:#C6D880;
+}
+
+div.error a
+{
+    color:#8a1f11;
+}
+
+div.notice a
+{
+    color:#514721;
+}
+
+div.success a
+{
+    color:#264409;
+}
+
+div.form .rememberMe label
+{
+    display: inline;
+}
+
+.actions
+{
+    margin: 0 0 10px 0;
+    padding: 0;
+}
+
+.actions li
+{
+    display: inline;
+    margin: 0;
+    padding: 0;
+}
+
+.actions li a
+{
+    padding: 5px;
+    margin: 0;
+    color: #298dcd;
+    text-decoration: none;
+    font-size: 0.8em;
+    font-weight: bold;
+    background: #DFF4FF;
+    border-left: 5px solid #589FC8;
+}
+
+.actions li a:hover, .actions li a.active
+{
+    background: #589FC8;
+    color: white;
+}
+
+div.view
+{
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #C9E0ED;
+}
+
+/* Mensagens */
+.msg_info, .msg_success, .msg_warning, .msg_error {
+	border: 1px solid;
+	margin: 0 auto 15px auto;
+	padding:15px 10px 15px 50px;
+	background-repeat: no-repeat;
+	background-position: 10px center;
+	font-family: Verdana;
+	font-family:Verdana, Geneva, sans-serif;
+	font-size:11px;
+	text-align:left;
+}
+.msg_info {
+	color: #00529B;
+	background-color: #BDE5F8;
+	background-image: url(../../images/info.png);
+}
+.msg_success {
+	color: #4F8A10;
+	background-color: #DFF2BF;
+	background-image:url(../../images/success.png);
+}
+.msg_warning {
+	color: #9F6000;
+	background-color: #FEEFB3;
+	background-image: url(../../images/warning.png);
+}
+.msg_error {
+	color: #D8000C;
+	background-color: #FFBABA;
+	background-image: url(../../images/error.png);
+}
+
+/* Header */
+#header {
+	background-image:url(../../images/header.png);
+	background-position:center center;
+	background-repeat:repeat-x;
+	display:block;
+	height:117px;
+	margin:0;
+	padding:0;
+	width:100%;
+}
+#headerIcons {
+	*display: inline;
+	*top: 10px;
+	padding-top:10px;
+	position:relative;
+	width:100%;
+}
+#headerIcons ul {
+	float:right;
+	list-style-image:none;
+	list-style-position:outside;
+	list-style-type:none;
+	margin:0;
+	padding:0;
+}
+#headerIcons ul li {
+	float:left;
+	padding-right:20px;
+}
+#headerIcons a {
+	color:#666666;
+	text-decoration:none;
+}
+
+/* Logo */
+#logo {
+	float:left;
+	left:0px;
+	margin:0;
+	position:relative;
+	top:0px;
+    margin: 10px 0 0 10px;
+	font-family:Verdana, Geneva, sans-serif;
+	font-size:18px;
+	font-weight:bold;
+	background: url(../../images/logo.png) no-repeat center left;
+	padding-left:90px;
+	line-height:70px;
+	vertical-align:middle;
+}
+
+#logo span {
+	margin-left: 30px;
+}
+
+/* Datagrid */
+.buttonDatagrid {
+	padding:4px 8px;
+	width:16px;
+	height:16px;
+}
+.buttonDatagrid.sendEmail {
+	background: url(../../images/ico_enviar_email.png) no-repeat center left;
+}
+
+/* BoxWidget */
+table.boxwidget {
+	margin:0;
+	padding:0;
+	border-collapse:0;
+	border-spacing:0;
+	width: 100%;
+    border:1px solid #CCCCCC;
+	border-top:0 none;
+	text-align: left;
+}
+table.boxwidget td.p1 {
+	height: 24px;
+	background: #FFFFFF url(../../images/box/p1.png) repeat-x 0 0;
+    font-size: 11px;
+	width: 100%;
+    vertical-align: middle;
+    text-align: left;
+    padding: 0;
+    margin: 0;
+}
+table.boxwidget td.p1 img {
+    padding-left: 3px;    
+}
+table.boxwidget td.p1 span {
+    
+}
+table.boxwidget td.p1 table {
+    border: 0;
+    border-spacing: 0;
+    text-align: left;
+    padding: 0;
+    margin: 0;
+}
+table.boxwidget td.p1 table td {
+    vertical-align: middle;    
+}
+table.boxwidget td.p1 table td.p1_1 {
+    padding: 0 2px 0 2px;     
+}
+table.boxwidget td.p1 table td.p1_2 {
+    width: 100%; 
+    font-weight: bold;   
+}
+table.boxwidget td.p2 {
+	padding: 4px;
+    vertical-align:top;    
+}
+
+/* Botão */
+a.button {
+	background: transparent url(../../images/bg_button_a.gif) no-repeat scroll top right;
+	color: #444;
+	display: block;
+	float: left;
+	font: normal 12px arial, sans-serif;
+	height: 24px;
+	margin-right: 6px;
+	padding-right: 18px;
+	text-decoration: none;
+}
+a.button span {
+	background: transparent url(../../images/bg_button_span.gif) no-repeat;
+	display: block;
+	line-height: 14px;
+	padding: 5px 0 5px 18px;
+}
+a.button:active {
+	background-position: bottom right;
+	color: #000;
+	outline: none;
+}
+a.button:active span {
+	background-position: bottom left;
+	padding: 6px 0 4px 18px;
+}
+
+/* Container */
+.container {
+    width: 100%;
+}
+
+/* Tabela de divisão de conteúdo */
+table.divider {
+
+}
+table.divider td.col1 {
+    vertical-align: top;
+    padding: 0;
+    margin: 0;
+    width: 200px;
+}
+table.divider td.col2 {
+    vertical-align: top;
+    padding: 0 3px;
+    margin: 0;
+}
+table.divider td.col3 {
+    vertical-align: top;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+/* Sem conteúdo */
+div.noContent {
+    width: 400px;
+    padding: 10px;
+    color: #000000;
+    font-weight: bold;
+    margin: 0 auto;
+    text-align: center;
+}
+
+#footer {
+    padding: 10px;
+    margin: 10px 20px;
+    font-size: 0.8em;
+    text-align: center;
+}
+
+/* Content */
+#content {
+ 
+}
+
+/* Form */
+fieldset {
+    border: 0 none;
+	border-top: 1px solid #CCCCCC;
+    padding: 0 5px 5px 5px;
+	clear: both;
+	display: block;
+}
+fieldset legend {
+    color: #3C8BAA; 
+    padding: 0 5px;  
+    font-weight: bold;
+    font-size: 12px;
+}
+div.form fieldset {
+	border: 0 none;
+	border-top: 1px solid #CCCCCC;
+}
+div.form label {
+    font-size: 12px;
+}
+div.form span.row {
+	display:block;
+	vertical-align:middle;
+	clear:both;
+	margin:6px 0;
+}
+div.form label.preField {
+	display:block;
+	float:left;
+	width:100px;
+	clear:left;
+	z-index:2;
+	position:relative;
+	text-align:right;
+	margin-right:10px;
+	padding:4px;
+    *padding:6px 4px 4px 4px;
+}
+div.form label.preFieldBig {
+	width:170px;
+}
+div.form label.posField {
+	display:inline!important;
+	font-weight:400!important;
+}
+div.form label.noblock {
+	display:inline;
+}
+div.form span.disabledField {
+	float:left;
+	margin-top:5px;
+}
+div.form select {
+    *margin:0;
+}
+div.buttons {
+    padding: 10px 5px;
+    margin-bottom: 10px;
+    clear: both;
+}
+
+#fancy-list {
+    margin: 0;   
+    padding: 0;
+}
+
+div.form .errorSummary
+{
+	border: 2px solid #C00;
+	padding: 7px 7px 12px 7px;
+	margin: 0 0 20px 0;
+	background: #FEE;
+	font-size: 0.9em;
+}
+
+div.form .errorMessage
+{
+	color: red;
+	font-size: 0.9em;
+}
+
+
+div.form .errorSummary p
+{
+	margin: 0;
+	padding: 5px;
+}
+
+div.form .errorSummary ul
+{
+	margin: 0;
+	padding: 0 0 0 20px;
+}
+
+div.separator
+{
+	clear: both;
+	padding-top: 10px;
+}
+
+div#ui-datepicker-div
+{
+	width: auto;
+}
+
+.hardBreak
+{
+	width: 300px;
+	white-space:normal;
+	word-break: break-all;
+	white-space: pre-wrap;
+}
+
+#dashboard table
+{
+	border-collapse: collapse;
+	width: 400px;
+	margin: 0 auto;
+}
+
+#dashboard table tr td
+{
+	border: 1px solid #CCC;
+	padding: 5px;
+	border-collapse: collapse;
+}
+
+#dashboard table tr td.totalColumn
+{
+	text-align: left;
+}
+
+tbody tr:nth-child(even) td, tbody tr.even td {background:#ffffff;}
