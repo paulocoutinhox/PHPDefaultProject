@@ -15,9 +15,9 @@
 		var BASE_URL = '<?php echo(Yii::app()->request->baseUrl); ?>';
 	</script>
 	
-	<script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl; ?>/scripts/jquery/jquery-1.9.1.min.js"></script>
+	<script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl; ?>/js/jquery/jquery-1.9.1.min.js"></script>
 	<script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl; ?>/libs/bootstrap/js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl; ?>/scripts/main.js"></script>
+	<script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl; ?>/js/main.js"></script>
 </head>
 <body>
 				

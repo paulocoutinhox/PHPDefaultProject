@@ -7,17 +7,6 @@ class AdminController extends CController
     
     protected $moduleTitle = 'Administrativo';
 
-	public function init() 
-	{
-		parent::init();
-		
-		Yii::app()->clientScript->registerCoreScript('jquery');
-		Yii::app()->clientScript->registerScriptFile(Yii::app()->request->baseUrl.'/scripts/admin/jquery/jquery.form.js');
-        Yii::app()->clientScript->registerScriptFile(Yii::app()->request->baseUrl.'/scripts/admin/jquery/jquery.maskmoney.js');
-		Yii::app()->clientScript->registerScriptFile(Yii::app()->request->baseUrl.'/scripts/admin/dropDownMenu.js');
-		Yii::app()->clientScript->registerCoreScript('maskedinput');
-	}
-        
     public function filters()
     {
         return array(

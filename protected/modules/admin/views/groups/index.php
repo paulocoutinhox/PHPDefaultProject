@@ -81,15 +81,15 @@
 						</td>
     					<td class="alignCenter lastColumn">
 							<a href="<?php echo($this->createUrl($this->getId() . '/view/id/' . $listItem->id)); ?>" title="Visualizar registro">
-                                <img src="<?php echo(Yii::app()->request->baseUrl . '/images/admin/ico_visualizar.png'); ?>" />
+                                <img src="<?php echo(Yii::app()->request->baseUrl . '/public/admin/images/ico_visualizar.png'); ?>" />
                             </a>
                             &nbsp;
                             <a href="<?php echo($this->createUrl($this->getId() . '/update/id/' . $listItem->id)); ?>" title="Alterar registro">
-                                <img src="<?php echo(Yii::app()->request->baseUrl . '/images/admin/ico_alterar.png'); ?>" />
+                                <img src="<?php echo(Yii::app()->request->baseUrl . '/public/admin/images/ico_alterar.png'); ?>" />
                             </a>
                             &nbsp;
                             <a href="javascript: deleteRow('<?php echo($this->createUrl($this->getId() . '/delete/id/' . $listItem->id)); ?>');" title="Excluir registro">
-                                <img src="<?php echo(Yii::app()->request->baseUrl . '/images/admin/ico_excluir.png'); ?>" />
+                                <img src="<?php echo(Yii::app()->request->baseUrl . '/public/admin/images/ico_excluir.png'); ?>" />
                             </a>
     					</td>
     				</tr>	

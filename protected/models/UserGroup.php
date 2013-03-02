@@ -24,16 +24,16 @@ class UserGroup extends Table
 	{
 		return array(
 			'groups' => array(self::HAS_MANY, 'Group', 'id'),
-            'users' => array(self::HAS_MANY, 'User', 'id'),
-            'group' => array(self::BELONGS_TO, 'Group', 'group_id'),
+            'users'  => array(self::HAS_MANY, 'User', 'id'),
+            'group'  => array(self::BELONGS_TO, 'Group', 'group_id'),
 		);
 	}
 
 	public function attributeLabels()
 	{
 		return array(
-			'id' => 'Código',
-			'user_id' => 'Usuário',
+			'id'       => 'Código',
+			'user_id'  => 'Usuário',
 			'group_id' => 'Grupo',
 		);
 	}

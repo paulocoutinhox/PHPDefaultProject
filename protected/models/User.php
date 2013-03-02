@@ -36,13 +36,13 @@ class User extends Table
 	public function attributeLabels()
 	{
 		return array(
-			'id' => 'Código',
-			'name' => 'Nome',
-			'email' => 'Email',
-			'active' => 'Ativo',
+			'id'       => 'Código',
+			'name'     => 'Nome',
+			'email'    => 'Email',
+			'active'   => 'Ativo',
 			'username' => 'Usuário',
 			'password' => 'Senha',
-			'root' => 'Super usuário',
+			'root'     => 'Super usuário',
 		);
 	}
 
@@ -61,30 +61,30 @@ class User extends Table
         return $this->salt;
     }
 
-    public static function hasPermission($module, $action, $checkAdmin = true)
+    public static function hasPermission($module, $action, $checkRoot = true)
     {
         $result = false;
 		
-        $user_id = (int)UserUtil::getAdminWebUser()->getId();
+        $userId = (int)UserUtil::getAdminWebUser()->getId();
 
-        if ($user_id == 0)
+        if ($userId == 0)
         {
             $result = false;
         }
         else
         {
-            $user = User::model()->findByPk($user_id);
+            $user = User::model()->findByPk($userId);
 
             if (!$user)
             {
                 $result = false;
             }
-            else if ($user->active == Constants::YES_ID && $user->root == Constants::YES_ID && $checkAdmin == true)
+            else if ($user->active == Constants::YES_ID && $user->root == Constants::YES_ID && $checkRoot == true)
             {
                 $result = true;
 
                 // descarrega dados
-                unset($user_id);
+                unset($userId);
                 unset($user);
 
                 return $result;
@@ -93,38 +93,32 @@ class User extends Table
             {
                 $sql = "
                 SELECT
-                    p.module, p.action
+                    COUNT(*) AS qty
                 FROM
                     `group` g
                 INNER JOIN
                     user_group ug ON ug.group_id = g.id
                 INNER JOIN
                     group_permission gp ON gp.group_id = ug.group_id
-                INNER JOIN
-                    permission p ON p.id = gp.permission_id
                 WHERE
-                    ug.user_id = $user_id
-                    AND g.active = 1
+                    ug.user_id = :userId
+                    AND g.active = :active
+                    AND gp.module = :module
+                    AND gp.action = :action
                 ";
 
-                $command    = Yii::app()->db->createCommand($sql);
-                $dataReader = $command->query();
+                $command = Yii::app()->db->createCommand($sql);
+				$command->bindParam(':userId', $userId);
+				$command->bindParam(':active', Constants::YES_ID);
+				$command->bindParam(':module', $module);
+				$command->bindParam(':action', $action);
 
-                foreach ($dataReader as $row)
-                {
-                    if ($module == $row['module'] && $action == $row['action'])
-                    {
-                        $result = true;
+                $qty = (int)$command->queryScalar();
 
-                        // descarrega dados
-                        unset($user_id);
-                        unset($user);
-                        unset($dataReader);
-                        unset($row);
-
-                        return $result;
-                    }
-                }
+				if ($qty > 0)
+				{
+					$result = true;
+				}
             }
 
         }

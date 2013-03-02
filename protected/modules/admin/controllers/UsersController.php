@@ -6,13 +6,7 @@ class UsersController extends AdminFormController
 	protected $formModel      = 'AdminFormUser';
 	protected $formSeachModel = 'AdminFormSearchUser';
 	protected $model          = 'User';
-	
-	public function init() 
-	{
-		parent::init();
-		Yii::app()->clientScript->registerScriptFile(Yii::app()->request->baseUrl.'/scripts/admin/jquery/jquery.password.strengh.js');
-	}
-	
+
     public function actionIndex()
 	{
 		$this->orderFieldsForSearch = array(

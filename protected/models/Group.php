@@ -26,16 +26,16 @@ class Group extends Table
 	{
 		return array(
 			'permissions' => array(self::HAS_MANY, 'GroupPermission', 'group_id'),
-            'userGroups' => array(self::HAS_MANY, 'UserGroup', 'group_id'),
+            'userGroups'  => array(self::HAS_MANY, 'UserGroup', 'group_id'),
 		);
 	}
 
 	public function attributeLabels()
 	{
 		return array(
-			'id' => 'Código',
+			'id'          => 'Código',
 			'description' => 'Descrição',
-			'active' => 'Ativo',
+			'active'      => 'Ativo',
 		);
 	}
 
@@ -65,10 +65,16 @@ class Group extends Table
         {
             foreach($permissions as $permission)
             {
-                $groupPermission = new GroupPermission();
-                $groupPermission->group_id      = $id;
-                $groupPermission->permission_id = $permission;
-                $groupPermission->save();
+				$permission = Permission::model()->findByPk($permission);
+
+				if ($permission)
+				{
+					$groupPermission = new GroupPermission();
+					$groupPermission->group_id = $id;
+					$groupPermission->module   = $permission->module;
+					$groupPermission->action   = $permission->action;
+					$groupPermission->save();
+				}
             }
         }
 	}
@@ -82,7 +88,8 @@ class Group extends Table
     public function active()
     {
         $this->getDbCriteria()->mergeWith(array(
-            'condition' => 'active=1'
+            'condition' => 'active = :active',
+            'params'    => array(':active' => Constants::YES_ID),
         ));
 
         return $this;

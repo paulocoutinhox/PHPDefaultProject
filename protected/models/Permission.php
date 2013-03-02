@@ -24,17 +24,17 @@ class Permission extends Table
 	public function relations()
 	{
 		return array(
-			'groups' => array(self::HAS_MANY, 'GroupPermission', 'permission_id'),
+			'groups' => array(self::HAS_MANY, 'GroupPermission', '(module, action)'),
 		);
 	}
 
 	public function attributeLabels()
 	{
 		return array(
-			'id' => 'Código',
-			'module' => 'Módulo',
+			'id'                 => 'Código',
+			'module'             => 'Módulo',
 			'module_description' => 'Descrição do módulo',
-			'action' => 'Ação',
+			'action'             => 'Ação',
 			'action_description' => 'Descrição da ação',
 		);
 	}
@@ -75,8 +75,8 @@ class Permission extends Table
     public function withModuleAndAction($module, $action)
     {
         $this->getDbCriteria()->mergeWith(array(
-            'condition' => 'module=:module AND action=:action',
-            'params' => array(':module' => $module, ':action' => $action),
+            'condition' => 'module = :module AND action = :action',
+            'params'    => array(':module' => $module, ':action' => $action),
         ));
 
         return $this;

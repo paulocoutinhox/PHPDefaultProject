@@ -16,26 +16,27 @@ class GroupPermission extends Table
 	public function rules()
 	{
 		return array(
-			array('group_id, permission_id', 'numerical', 'integerOnly'=>true),
+			array('group_id, module, action', 'required'),
+			array('group_id', 'numerical', 'integerOnly' => true),
+			array('module, action', 'length', 'max'=>255),
 		);
 	}
 
 	public function relations()
 	{
 		return array(
-			'permissions' => array(self::HAS_MANY, 'Permission', 'id'),
-            'groups'      => array(self::HAS_MANY, 'Group', 'id'),
-            'group'       => array(self::BELONGS_TO, 'Group', 'group_id'),
-            'permission'  => array(self::BELONGS_TO, 'Permission', 'permission_id'),
+			'groups' => array(self::HAS_MANY, 'Group', 'id'),
+            'group'  => array(self::BELONGS_TO, 'Group', 'group_id'),
 		);
 	}
 
 	public function attributeLabels()
 	{
 		return array(
-			'id' => 'Código',
+			'id'       => 'Código',
 			'group_id' => 'Grupo',
-			'permission_id' => 'Permissão',
+			'module'   => 'Módulo',
+			'action'   => 'Ação',
 		);
 	}
 

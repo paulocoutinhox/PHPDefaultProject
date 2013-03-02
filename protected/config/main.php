@@ -22,6 +22,7 @@ $config = array(
 			'password' => 'qqaazz',
 		),
 		'admin' => array(
+			'defaultController' => 'home',
 			'components' => array(
 				'user' => array(
 					'class'          => 'AdminWebUser',

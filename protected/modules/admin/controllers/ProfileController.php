@@ -4,12 +4,6 @@ class ProfileController extends AdminController
 {
 	protected $moduleTitle = 'Meu perfil';
 
-	public function init() 
-	{
-		parent::init();
-		Yii::app()->clientScript->registerScriptFile(Yii::app()->request->baseUrl.'/scripts/admin/jquery/jquery.password.strengh.js');
-	}
-
     public function actionIndex()
 	{
 		$model = User::model()->findByPk(UserUtil::getAdminWebUser()->getId());

@@ -21,7 +21,7 @@ class LoginController extends SiteController
                 Yii::trace('Login efetuado com sucesso (' . $form->username . ').');
 				
 				UserUtil::getDefaultWebUser()->setFlash(Constants::SUCCESS_MESSAGE_ID, 'Login efetuado com sucesso.');
-				$this->redirect(array('/default'));
+				$this->redirect(array('/home'));
             }
 			else
 			{
@@ -37,7 +37,7 @@ class LoginController extends SiteController
     public function actionLogout()
     {
         UserUtil::getDefaultWebUser()->logout();
-        $this->redirect(array('/default'));
+        $this->redirect(array('/home'));
     }
     
 }

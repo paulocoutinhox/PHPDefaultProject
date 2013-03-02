@@ -5,20 +5,20 @@
 	<meta name="language" content="en" />
 
 	<!-- blueprint CSS framework -->
-	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/admin/blueprint/screen.css" media="screen, projection" />
-	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/admin/blueprint/print.css" media="print" />
+	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/public/<?php echo($this->getModule()->getId()); ?>/css/blueprint/screen.css" media="screen, projection" />
+	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/public/<?php echo($this->getModule()->getId()); ?>/css/blueprint/print.css" media="print" />
 	<!--[if lt IE 8]>
-	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/admin/blueprint/ie.css" media="screen, projection" />
+	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/public/<?php echo($this->getModule()->getId()); ?>/css/blueprint/ie.css" media="screen, projection" />
 	<![endif]-->
 
-	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/admin/custom/form.css" />
-    <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/admin/custom/main.css" />
-    <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/admin/custom/menu.css" />
-    <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/admin/custom/pager.css" />
-    <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/admin/custom/dropDownMenu.css" />
-    <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/admin/datagrid/default/style.css" />
+	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/public/<?php echo($this->getModule()->getId()); ?>/css/custom/form.css" />
+    <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/public/<?php echo($this->getModule()->getId()); ?>/css/custom/main.css" />
+    <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/public/<?php echo($this->getModule()->getId()); ?>/css/custom/menu.css" />
+    <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/public/<?php echo($this->getModule()->getId()); ?>/css/custom/pager.css" />
+    <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/public/<?php echo($this->getModule()->getId()); ?>/css/custom/dropDownMenu.css" />
+    <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/public/<?php echo($this->getModule()->getId()); ?>/css/datagrid/default/style.css" />
 	
-    <script src="<?php echo Yii::app()->request->baseUrl; ?>/scripts/admin/main.js" type="text/javascript"></script>
+    <script src="<?php echo Yii::app()->request->baseUrl; ?>/public/<?php echo($this->getModule()->getId()); ?>/js/main.js" type="text/javascript"></script>
     
 	<title><?php echo CHtml::encode(Yii::app()->name); ?></title>
 </head>
@@ -38,11 +38,11 @@
     		<ul>
 				<?php if(User::hasPermission('help', 'index')) { ?>
     			<li>
-    				<a href="<?php echo($this->createUrl('/admin/help')); ?>" title="Ajuda"><img src="<?php echo(Yii::app()->request->baseUrl . '/images/admin/ico_help.gif'); ?>" alt="" border="0" />Ajuda</a>
+    				<a href="<?php echo($this->createUrl('/admin/help')); ?>" title="Ajuda"><img src="<?php echo(Yii::app()->request->baseUrl . '/public/admin/images/ico_help.gif'); ?>" alt="" border="0" />Ajuda</a>
     			</li>
 				<?php } ?>
     			<li>
-    				<a href="<?php echo($this->createUrl('/admin/login/logout')); ?>" title="Sair do sistema"><img src="<?php echo(Yii::app()->request->baseUrl . '/images/admin/ico_logout.gif'); ?>" alt="" border="0" />Sair do sistema</a>
+    				<a href="<?php echo($this->createUrl('/admin/login/logout')); ?>" title="Sair do sistema"><img src="<?php echo(Yii::app()->request->baseUrl . '/public/admin/images/ico_logout.gif'); ?>" alt="" border="0" />Sair do sistema</a>
     			</li>
     		</ul>
     	</div>
@@ -125,7 +125,7 @@
                                     <td colspan="2">&nbsp;</td>
                                 </tr>
                                 <tr>
-                                    <td colspan="2" style="text-align: center; width: 100%;"><img src="<?php echo(Yii::app()->request->baseUrl . '/images/admin/ico_usuario.png'); ?>" alt="" border="0" /></td>
+                                    <td colspan="2" style="text-align: center; width: 100%;"><img src="<?php echo(Yii::app()->request->baseUrl . '/public/admin/images/ico_usuario.png'); ?>" alt="" border="0" /></td>
                                 </tr>
                                 <tr>
                                     <td colspan="2">&nbsp;</td>

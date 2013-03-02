@@ -19,7 +19,7 @@
 
 			<br />
 
-			<img src="<?php echo(Yii::app()->request->baseUrl . '/images/admin/ico_identity_32.png'); ?>" border="0" alt="" />
+			<img src="<?php echo(Yii::app()->request->baseUrl . '/public/admin/images/ico_identity_32.png'); ?>" border="0" alt="" />
 
 			<br />
 			<br />

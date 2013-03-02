@@ -24,7 +24,7 @@ class RecoveryPasswordController extends SiteController
 				Yii::trace('Token não informado.');
 				UserUtil::getDefaultWebUser()->setFlash(Constants::ERROR_MESSAGE_ID, 'Token inválido.');
 				
-				$this->redirect(array('/default'));
+				$this->redirect(array('/home'));
 			}
 			
 			Yii::trace('Iniciando processo de recuperação de senha: ' . $form->token . '.');
@@ -44,7 +44,7 @@ class RecoveryPasswordController extends SiteController
 					Yii::trace('Senha alterada com sucesso (' . $form->token . ').');
 					
 					UserUtil::getDefaultWebUser()->setFlash(Constants::SUCCESS_MESSAGE_ID, 'Sua senha foi alterada com sucesso.');				
-					$this->redirect(array('/default'));
+					$this->redirect(array('/home'));
 				}
 				else
 				{

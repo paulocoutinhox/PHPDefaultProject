@@ -2,7 +2,7 @@
 return array(
 	'name'              => 'TITULO',
 	'theme'             => 'default',
-	'defaultController' => 'default',
+	'defaultController' => 'home',
 	
 	// application components
 	'components' => array(

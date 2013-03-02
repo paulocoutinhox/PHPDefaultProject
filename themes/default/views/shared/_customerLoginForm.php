@@ -21,7 +21,7 @@
 				<a href="<?php echo($this->createUrl('/forgotPassword')); ?>" title="Esqueci a senha">Esqueci a senha</a>
 			</p>
 			<p>
-				<a href="<?php echo($this->createUrl('/default')); ?>" title="Voltar">Voltar</a>
+				<a href="<?php echo($this->createUrl('/home')); ?>" title="Voltar">Voltar</a>
 			</p>
 		</div>
 	</div>
