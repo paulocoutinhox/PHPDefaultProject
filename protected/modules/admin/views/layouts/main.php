@@ -17,9 +17,17 @@
     <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/public/<?php echo($this->getModule()->getId()); ?>/css/custom/pager.css" />
     <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/public/<?php echo($this->getModule()->getId()); ?>/css/custom/dropDownMenu.css" />
     <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/public/<?php echo($this->getModule()->getId()); ?>/css/datagrid/default/style.css" />
-	
+
+	<script src="<?php echo Yii::app()->request->baseUrl; ?>/public/<?php echo($this->getModule()->getId()); ?>/js/jquery/jquery-1.9.1.min.js" type="text/javascript"></script>
+	<script src="<?php echo Yii::app()->request->baseUrl; ?>/public/<?php echo($this->getModule()->getId()); ?>/js/jquery/jquery.form.js" type="text/javascript"></script>
+	<script src="<?php echo Yii::app()->request->baseUrl; ?>/public/<?php echo($this->getModule()->getId()); ?>/js/jquery/jquery.autocomplete.js" type="text/javascript"></script>
+	<script src="<?php echo Yii::app()->request->baseUrl; ?>/public/<?php echo($this->getModule()->getId()); ?>/js/jquery/jquery.maskmoney.js" type="text/javascript"></script>
+	<script src="<?php echo Yii::app()->request->baseUrl; ?>/public/<?php echo($this->getModule()->getId()); ?>/js/jquery/jquery.password.strengh.js" type="text/javascript"></script>
+	<script src="<?php echo Yii::app()->request->baseUrl; ?>/public/<?php echo($this->getModule()->getId()); ?>/js/jquery/jquery.timers.js" type="text/javascript"></script>
+	<script src="<?php echo Yii::app()->request->baseUrl; ?>/public/<?php echo($this->getModule()->getId()); ?>/js/fancybox/jquery.fancybox.js" type="text/javascript"></script>
+	<script src="<?php echo Yii::app()->request->baseUrl; ?>/public/<?php echo($this->getModule()->getId()); ?>/js/dropDownMenu.js" type="text/javascript"></script>
     <script src="<?php echo Yii::app()->request->baseUrl; ?>/public/<?php echo($this->getModule()->getId()); ?>/js/main.js" type="text/javascript"></script>
-    
+
 	<title><?php echo CHtml::encode(Yii::app()->name); ?></title>
 </head>
 
@@ -73,11 +81,11 @@
                         <?php $this->beginWidget('application.modules.admin.components.BoxWidget', array('title' => 'Menu', 'width' => '180px')); ?>
                             <ul class="menu">
                                 
-                                <?php if(User::hasPermission('default', 'index')) { ?>
+                                <?php if(User::hasPermission('home', 'index')) { ?>
                                     <li class="imgArrow"><a href="<?php echo $this->createUrl('/admin'); ?>">Início</a></li>
                                 <?php } ?>
 									
-								<?php if(User::hasPermission('content', 'menu')) { ?>
+								<?php if(User::hasPermission('contents', 'menu')) { ?>
                                     <li class="imgArrow"><a href="<?php echo $this->createUrl('/admin/contents'); ?>">Conteúdos</a></li>
                                 <?php } ?>
                                                                                               

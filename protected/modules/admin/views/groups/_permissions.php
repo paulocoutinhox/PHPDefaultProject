@@ -41,7 +41,7 @@ if (isset($permissions) && $permissions && count($permissions) > 0)
                 {
                     foreach($selectedPermissions as $selectedPermission)
                     {
-                        if ($selectedPermission->permission->id == $permission->id)
+						if ($selectedPermission->module == $permission->module && $selectedPermission->action == $permission->action)
                         {
                             $checked = true;
                         }
@@ -57,11 +57,11 @@ if (isset($permissions) && $permissions && count($permissions) > 0)
 		{
 			if ($checked == true)
 			{
-				echo('<img src="' . Yii::app()->request->baseUrl . '/images/admin/ico_check_yes.png' . '" border="0" alt="' . Constants::YES_TEXT . '" style="float: left;" title="' . Constants::YES_TEXT . '" />');
+				echo('<img src="' . Yii::app()->request->baseUrl . '/public/admin/images/ico_check_yes.png' . '" border="0" alt="' . Constants::YES_TEXT . '" style="float: left;" title="' . Constants::YES_TEXT . '" />');
 			} 
 			else
 			{
-				echo('<img src="' . Yii::app()->request->baseUrl . '/images/admin/ico_check_no.png' . '" border="0" alt="' . Constants::NO_TEXT . '" style="float: left;" title="' . Constants::NO_TEXT . '" />');
+				echo('<img src="' . Yii::app()->request->baseUrl . '/public/admin/images/ico_check_no.png' . '" border="0" alt="' . Constants::NO_TEXT . '" style="float: left;" title="' . Constants::NO_TEXT . '" />');
 			}
 		}
 		else

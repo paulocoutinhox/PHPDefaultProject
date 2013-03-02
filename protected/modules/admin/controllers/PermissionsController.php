@@ -105,7 +105,7 @@ class PermissionsController extends AdminFormController
 												  )
 							  );
 
-			$modules[] = array('module_name' => 'default',
+			$modules[] = array('module_name' => 'home',
 							   'module_description' => 'Painel administrativo do sistema',
 							   'actions' => array('index'         => 'Página inicial',
 												  'security_menu' => 'Exibição do menu de segurança',
@@ -168,7 +168,7 @@ class PermissionsController extends AdminFormController
 	{
 		$modules = array();
 		
-		$modules[] = array('module_name' => 'content',
+		$modules[] = array('module_name' => 'contents',
 						   'module_description' => 'Conteúdos',
 						   'actions' => array('menu'   	   	      => 'Visualizar o menu deste módulo',
 											  'add'    	   	      => 'Adicionar',

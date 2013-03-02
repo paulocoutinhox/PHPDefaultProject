@@ -107,9 +107,11 @@ class User extends Table
                     AND gp.action = :action
                 ";
 
+				$active = Constants::YES_ID;
+
                 $command = Yii::app()->db->createCommand($sql);
 				$command->bindParam(':userId', $userId);
-				$command->bindParam(':active', Constants::YES_ID);
+				$command->bindParam(':active', $active);
 				$command->bindParam(':module', $module);
 				$command->bindParam(':action', $action);
 

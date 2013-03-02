@@ -299,26 +299,24 @@ input.error
 .msg_info {
 	color: #00529B;
 	background-color: #BDE5F8;
-	background-image: url(../../../images/admin/info.png);
+	background-image: url(../../images/info.png);
 }
 .msg_success {
 	color: #4F8A10;
 	background-color: #DFF2BF;
-	background-image:url(../../../images/admin/success.png);
+	background-image:url(../../images/success.png);
 }
 .msg_warning {
 	color: #9F6000;
 	background-color: #FEEFB3;
-	background-image: url(../../../images/admin/warning.png);
+	background-image: url(../../images/warning.png);
 }
 .msg_error {
 	color: #D8000C;
 	background-color: #FFBABA;
-	background-image: url(../../../images/admin/error.png);
+	background-image: url(../../images/error.png);
 }
 #logo {
-	background-image:url(../../../images/logo.png);
-	background-repeat: no-repeat;
 	width:143px;
 	height:50px;
 	margin: 20px auto;
