@@ -1,0 +1,1 @@
+for i in $(find ../../ -type d -regex ``./[^.].*'' -empty); do touch $i"/index.html"; done;
