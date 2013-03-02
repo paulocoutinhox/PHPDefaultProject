@@ -2,8 +2,8 @@
 *.DS_Store
 *.DS_Store*
 .DS_Store*
-assets
-assets/*
+public/assets/*
+!public/assets/index.html
 protected/runtime
 protected/runtime/*
 .idea
