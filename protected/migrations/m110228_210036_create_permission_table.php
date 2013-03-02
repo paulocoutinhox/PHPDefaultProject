@@ -14,6 +14,7 @@ class m110228_210036_create_permission_table extends CDbMigration
 
 		$this->createIndex('module', 'permission', 'module');
 		$this->createIndex('action', 'permission', 'action');
+		$this->createIndex('module_action', 'permission', 'module, action');
     }
 
     public function down()
