@@ -12,6 +12,8 @@ class m110228_205845_create_group_permission_table extends CDbMigration
 		), 'ENGINE=InnoDB');
 
 		$this->createIndex('group_id', 'group_permission', 'group_id');
+		$this->createIndex('module', 'group_permission', 'module');
+		$this->createIndex('action', 'group_permission', 'action');
 		$this->createIndex('module_action', 'group_permission', 'module, action');
     }
 
