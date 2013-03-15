@@ -2,7 +2,7 @@
 
 return array(
 	'TOOLBAR' => '',
-	
+
 //	Blank
 	'Blank' => '',
 	'Example panel' => '',

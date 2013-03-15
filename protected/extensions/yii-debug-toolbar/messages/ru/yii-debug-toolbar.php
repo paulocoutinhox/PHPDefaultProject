@@ -2,7 +2,7 @@
 
 return array(
 	'TOOLBAR' => 'ТУЛБАР',
-	
+
 //	Blank
 	'Blank' => 'Заготовка',
 	'Example panel' => 'Пример панели',
