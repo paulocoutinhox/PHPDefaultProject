@@ -4,7 +4,7 @@ class UsersController extends AdminFormController
 {
 	protected $moduleTitle    = 'Usuários';
 	protected $formModel      = 'AdminFormUser';
-	protected $formSeachModel = 'AdminFormSearchUser';
+	protected $formSearchModel = 'AdminFormSearchUser';
 	protected $model          = 'User';
 
     public function actionIndex()

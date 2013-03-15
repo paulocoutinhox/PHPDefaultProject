@@ -5,7 +5,7 @@ class GroupsController extends AdminFormController
 	
 	protected $moduleTitle    = 'Grupos';
 	protected $formModel      = 'AdminFormGroup';
-	protected $formSeachModel = 'AdminFormSearchGroup';
+	protected $formSearchModel = 'AdminFormSearchGroup';
 	protected $model          = 'Group';
 	
     public function actionIndex()

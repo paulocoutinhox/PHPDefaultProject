@@ -5,7 +5,7 @@ class ContentsController extends AdminFormController
 	
 	protected $moduleTitle    = 'Conteúdos';
 	protected $formModel      = 'AdminFormContent';
-	protected $formSeachModel = 'AdminFormSearchContent';
+	protected $formSearchModel = 'AdminFormSearchContent';
 	protected $model          = 'Content';
 	
     public function actionIndex()

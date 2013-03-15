@@ -5,7 +5,7 @@ class AdminFormController extends AdminController
 	protected $moduleTitle = 'AdminFormController';
 	
 	protected $formModel;
-	protected $formSeachModel;
+	protected $formSearchModel;
 	protected $model;
 	protected $form;
 	protected $formSearch;
@@ -40,7 +40,7 @@ class AdminFormController extends AdminController
             }
 
 			$model                  = new $this->model;
-			$this->formSearch       = new $this->formSeachModel;
+			$this->formSearch       = new $this->formSearchModel;
 
 			$this->arrConditions    = array();
 			$this->arrParameters    = array();

@@ -5,7 +5,7 @@ class PermissionsController extends AdminFormController
 	
 	protected $moduleTitle    = 'Permissões';
 	protected $formModel      = 'AdminFormPermission';
-	protected $formSeachModel = 'AdminFormSearchPermission';
+	protected $formSearchModel = 'AdminFormSearchPermission';
 	protected $model          = 'Permission';
 	
     public function actionIndex()
