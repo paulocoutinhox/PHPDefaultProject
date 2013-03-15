@@ -43,12 +43,10 @@ class CustomerIdentity extends CUserIdentity
 			Yii::trace('Usuário autenticado com sucesso (' . $this->username . ')');
 			
 			$this->errorCode = self::ERROR_NONE;
-			
-			UserUtil::getDefaultWebUser()->setId($this->model->id);
-			UserUtil::getDefaultWebUser()->setName($this->model->username);
+
+			Yii::app()->session->clear();
             
-			$this->username = UserUtil::getDefaultWebUser()->getId();
-			
+            $this->setState('id'     , $this->model->id);
             $this->setState('name'   , $this->model->name);
             $this->setState('email'  , $this->model->email);
             $this->setState('status' , $this->model->status);

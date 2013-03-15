@@ -10,7 +10,7 @@ class ContentController extends SiteController
 		if ($model == null)
 		{
 			UserUtil::getDefaultWebUser()->setFlash(Constants::ERROR_MESSAGE_ID, 'Tag inválida.');
-			$this->redirect(array('/home'));
+			$this->redirect(array('/home/index'));
 		}
 		
 		$this->render($this->getAction()->getId(), array(

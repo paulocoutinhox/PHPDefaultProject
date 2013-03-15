@@ -9,7 +9,7 @@ class WebUser extends CWebUser
 	{
 		if ($this->model == null)
 		{
-			$this->model = Customer::model()->findByPk($this->getId());
+			$this->model = Customer::model()->findByPk($this->getState('id'));
 		}
 		
 		return $this->model;

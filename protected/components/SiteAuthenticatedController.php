@@ -3,6 +3,9 @@
 class SiteAuthenticatedController extends SiteController
 {
 
+	protected $currentCustomer;
+	protected $excludeFromAccessControl = false;
+
 	public function filters()
 	{
 		return array_merge(parent::filters(),
@@ -14,19 +17,19 @@ class SiteAuthenticatedController extends SiteController
 
 	public function filterAccessControl($filterChain)
 	{
-		if (UserUtil::getDefaultWebUser()->getIsGuest())
+		if ($this->excludeFromAccessControl == false || in_array($this->getAction()->getId(), $this->excludeFromAccessControl) == false)
 		{
-			if(Yii::app()->request->isAjaxRequest)
+			if (UserUtil::getDefaultWebUser()->getIsGuest())
 			{
-				$this->renderPartial('/shared/_blank');
-				Yii::app()->end();
+				$this->redirect(array('/login'));
 			}
 			else
 			{
-				$this->redirect(array('/login'));
+				$this->currentCustomer = UserUtil::getDefaultWebUser()->getModel();
 			}
 		}
 
 		$filterChain->run();
 	}
+
 }

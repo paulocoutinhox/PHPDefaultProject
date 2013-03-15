@@ -43,6 +43,7 @@ $config = array(
 			'urlFormat'      => 'path',
 			'showScriptName' => false,
 			'rules' => array(
+				'/' => 'home/index',
 				'content/<tag:[a-z0-9-]+>' => 'content/index',
 			),
 		),
