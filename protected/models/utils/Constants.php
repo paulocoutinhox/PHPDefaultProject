@@ -34,4 +34,7 @@ class Constants
 	const MODULE_DEFAULT = 'default';
 	const MODULE_ADMIN   = 'admin';
 
+	const CUSTOMER_TYPE_PF = 'PF';
+	const CUSTOMER_TYPE_PJ = 'PJ';
+
 }

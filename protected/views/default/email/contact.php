@@ -1,6 +1,4 @@
-<a href="<?php echo Yii::app()->getBaseUrl(true); ?>" title="<?php echo(Yii::app()->name); ?>">
-	<img src="<?php echo Yii::app()->getBaseUrl(true); ?>/themes/<?php echo(Yii::app()->theme->getName()); ?>/images/logo.png"/>
-</a>
+<img src="<?php echo Yii::app()->getBaseUrl(true); ?>/themes/<?php echo(Yii::app()->theme->getName()); ?>/images/logo.png"/>
 
 <br />
 <br />

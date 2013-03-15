@@ -11,14 +11,14 @@ class Table extends CActiveRecord
 		return parent::model($className);
 	}
     
-    public function behaviors(){
-    	if ($this->saveTimeStamp == true)
+    public function behaviors() {
+    	if ($this->saveTimeStamp)
 		{
 			return array(
 				'CTimestampBehavior' => array(
-					'class' => 'zii.behaviors.CTimestampBehavior',
-					'createAttribute' => 'created_at',
-					'updateAttribute' => 'updated_at',
+					'class'             => 'zii.behaviors.CTimestampBehavior',
+					'createAttribute'   => 'created_at',
+					'updateAttribute'   => 'updated_at',
 					'setUpdateOnCreate' => 'true',
 				)
 			);
@@ -61,7 +61,7 @@ class Table extends CActiveRecord
 
 	public function canModifyOrDelete()
 	{
-		return array('success' => true, 'message' => '');
+		return array('success' => true, 'message' => null);
 	}
 
 	public function formatAllFields()
@@ -83,13 +83,6 @@ class Table extends CActiveRecord
                 $this->$columnName = Yii::app()->numberFormatter->format(Yii::app()->params['currencyFormat'], $this->$columnName);
             }
         }
-
-		/*
-		 * $model->preco1 = str_replace('.', '', $model->preco1);
-                $model->preco1 = str_replace(',', '.', $model->preco1);
-                $model->preco1 = (float)$model->preco1;
-		 */
-
 	}
 
 	public function getUpdatableFields()

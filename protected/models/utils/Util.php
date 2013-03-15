@@ -222,4 +222,45 @@ class Util
 	{
 		return implode(',', Yii::app()->params['facebookPermissions']);
 	}
+
+	public static function onlyNumbers($text)
+	{
+		return preg_replace("/[^0-9]/", '', $text);
+	}
+
+	public static function formatCPF($value)
+	{
+		return Util::formatWithMask($value, '###.###.###-##');
+	}
+
+	public static function formatCNPJ($value)
+	{
+		return Util::formatWithMask($value, '##.###.###/####-##');
+	}
+
+	public static function formatWithMask($value, $mask, $onlyNumbers = true)
+	{
+		if ($onlyNumbers)
+		{
+			$value = Util::onlyNumbers($value);
+		}
+
+		$index = -1;
+
+		for ($i=0; $i < strlen($mask); $i++)
+		{
+			if ($mask[$i] == '#')
+			{
+				$mask[$i] = $value[++$index];
+			}
+		}
+
+		return $mask;
+	}
+
+	public static function formatPhone($value)
+	{
+		return '('. substr($value, 0, 2) . ") " . substr($value, 2, 4) . "-" . substr($value, 6, 5);
+	}
+
 }
