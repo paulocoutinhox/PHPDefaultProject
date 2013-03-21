@@ -39,4 +39,26 @@ class WebUtil
 		);
 	}
 
+	public static function slugUrl($url, $excerpt = false)
+	{
+		// clean and Remove accentuation
+		$url = trim($url);
+		$url = removeAccentuation($url);
+		// excerpt before slug string
+		if ($excerpt !== false)
+		{
+			$url = excerpt($url, $excerpt);
+		}
+		// unwanted:  {UPPERCASE} ; / ? : @ & = + $ , . ! ~ * ' ( )
+		$url = strtolower($url);
+		// strip any unwanted characters
+		$url = preg_replace("/[^a-z0-9_\s-]/", "", $url);
+		// clean multiple dashes or whitespaces
+		$url = preg_replace("/[\s-]+/", " ", $url);
+		// convert whitespaces and underscore to dash
+		$url = preg_replace("/[\s_]/", "-", $url);
+
+		return $url;
+	}
+
 }
