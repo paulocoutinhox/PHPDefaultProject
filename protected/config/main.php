@@ -82,4 +82,4 @@ $config = array(
 	),
 );
 
-return CMap::mergeArray(require(dirname(__FILE__) . '/themes/' . $theme . '.php'), $config);
+return CMap::mergeArray($config, require(dirname(__FILE__) . '/themes/' . $theme . '.php'));
