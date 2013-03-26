@@ -38,6 +38,7 @@ $config = array(
 			'class'          => 'WebUser',
 			'allowAutoLogin' => true,
 			'stateKeyPrefix' => 'default_',
+			'autoUpdateFlash' => false,
 		),
 		'urlManager' => array(
 			'urlFormat'      => 'path',
