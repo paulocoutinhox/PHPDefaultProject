@@ -3,8 +3,8 @@ $theme = 'default';
 
 $config = array(
 	'basePath'       => dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
-	'language'       => 'pt',
-	'sourceLanguage' => 'pt',
+	'language'       => 'pt_br',
+	'sourceLanguage' => 'pt_br',
 	'timeZone'       => 'America/Sao_Paulo',
 	
 	'preload' => array('log', 'session'),
