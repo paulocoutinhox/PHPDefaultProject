@@ -2,7 +2,7 @@
     
     <div class="buttons">
     
-        <?php $this->widget('ButtonWidget', array('title' => 'Voltar', 'link' => $this->createUrl('/admin/' . $this->getId()))); ?>
+        <?php $this->widget('ButtonWidget', array('title' => 'Voltar', 'link' => $this->createUrl('/admin/' . $this->getId() . '/index', array('restore' => 1)))); ?>
         <?php $this->widget('ButtonWidget', array('title' => 'Novo registro', 'link' => $this->createUrl('/admin/' . $this->getId() . '/add'))); ?>
         <?php $this->widget('ButtonWidget', array('title' => 'Alterar', 'link' => $this->createUrl('/admin/' . $this->getId() . '/update/id/' . $model->id))); ?>
         <?php $this->widget('ButtonWidget', array('title' => 'Excluir', 'link' => 'javascript: deleteRow(\'' . $this->createUrl($this->getId() . '/delete/id/' . $model->id) . '\');')); ?>

@@ -29,7 +29,10 @@ class AdminFormController extends AdminController
 	protected $renderData;
 
     protected $criteriaForSearch;
-	
+
+	protected $storeAttributes = true;
+	protected $hasPagination   = true;
+
     public function actionIndex()
 	{
 		if ($this->beforeActionIndex() == true)
@@ -64,14 +67,23 @@ class AdminFormController extends AdminController
 			ComponentsForSearch::paramsForSearchQuery($this->formSearch, $this->criteriaForSearch, $this->arrParametersUrl, $this->orderFieldDefaultForSearch, $this->orderDirectionDefaultForSearch);
 
 			// cria paginação e limite de registros
-			$pagination = new CPagination( $model->count($this->criteriaForSearch) );
-			$pagination->setCurrentPage($this->formSearch->page-1);
-			$pagination->setPageSize($this->arrRowCount[$this->formSearch->rowCount]);
+			if ($this->hasPagination)
+			{
+				$pagination = new CPagination( $model->count($this->criteriaForSearch) );
+				$pagination->setCurrentPage($this->formSearch->page-1);
+				$pagination->setPageSize($this->arrRowCount[$this->formSearch->rowCount]);
 
-            $this->criteriaForSearch->offset = ($pagination->getCurrentPage() * $pagination->getPageSize());
-            $this->criteriaForSearch->limit  = $pagination->getPageSize();
+				$this->criteriaForSearch->offset = ($pagination->getCurrentPage() * $pagination->getPageSize());
+				$this->criteriaForSearch->limit  = $pagination->getPageSize();
 
-			$pagination->params = $this->arrParametersUrl;
+				$pagination->params = $this->arrParametersUrl;
+			}
+
+			// grava os objetos de pesquisa
+			if ($this->storeAttributes)
+			{
+				$this->formSearch->storeAttributes();
+			}
 
 			// cria objeto para o form
 			$list = $model->findAll($this->criteriaForSearch);
@@ -84,7 +96,7 @@ class AdminFormController extends AdminController
 				'arrOrderField'     => $this->arrOrderField,
 				'arrOrderDirection' => $this->arrOrderDirection,
 				'arrRowCount'       => $this->arrRowCount,
-				'pagination'        => $pagination,
+				'pagination'        => ($this->hasPagination ? $pagination : null),
 			);
 			
 			if ($this->afterActionIndex())

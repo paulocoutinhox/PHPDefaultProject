@@ -10,6 +10,8 @@ class AdminFormSearch extends CFormModel
     
     public function init()
     {
+		$this->restoreAttributes();
+
         $this->setAttributes($_POST);                
         $this->setAttributes($_GET);
         
@@ -39,9 +41,67 @@ class AdminFormSearch extends CFormModel
 	public function attributeLabels()
 	{
 		return array(
-			'orderField'=>'Ordernar por',
-            'orderDirection'=>'Ordem',
-            'rowCount'=>'Quantidade de registros por página',
+			'orderField'     => 'Ordernar por',
+            'orderDirection' => 'Ordem',
+            'rowCount'       => 'Quantidade de registros por página',
 		);
+	}
+
+	public function storeAttributes()
+	{
+		$data = array();
+		$this->cleanSearchData();
+
+		foreach($this->getAttributes() as $key => $value)
+		{
+			$data[$key] = $value;
+		}
+
+		$searchData = UserUtil::getAdminWebUser()->getState('searchData');
+
+		if (!is_array($searchData))
+		{
+			$searchData = array();
+		}
+
+		$searchData[get_class($this)] = $data;
+
+		UserUtil::getAdminWebUser()->setState('searchData', $searchData);
+	}
+
+	protected function restoreAttributes($clean = true)
+	{
+		if (isset($_GET['restore']) && $_GET['restore'] == 1)
+		{
+			$searchData = UserUtil::getAdminWebUser()->getState('searchData');
+
+			if (is_array($searchData) && isset($searchData[get_class($this)]))
+			{
+				$data = $searchData[get_class($this)];
+
+				foreach($data as $key => $value)
+				{
+					$this->$key = $value;
+				}
+
+				if ($clean == true)
+				{
+					$this->cleanSearchData();
+				}
+
+			}
+		}
+	}
+
+	protected function cleanSearchData()
+	{
+		$searchData = UserUtil::getAdminWebUser()->getState('searchData');
+
+		if (is_array($searchData) && isset($searchData[get_class($this)]))
+		{
+			unset($searchData[get_class($this)]);
+		}
+
+		UserUtil::getAdminWebUser()->setState('searchData', $searchData);
 	}
 }
