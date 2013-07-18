@@ -55,6 +55,8 @@ class AdminFormController extends AdminController
             $this->criteriaForSearch->condition = implode(' AND ', $this->arrConditions);
             $this->criteriaForSearch->params    = $this->arrParameters;
 
+			$canProcessData = $this->actionIndexCanProcessData();
+
 			// cria parâmetros de ordenação para a pesquisa
 			foreach($this->orderFieldsForSearch as $key => $value)
 			{
@@ -67,16 +69,19 @@ class AdminFormController extends AdminController
 			ComponentsForSearch::paramsForSearchQuery($this->formSearch, $this->criteriaForSearch, $this->arrParametersUrl, $this->orderFieldDefaultForSearch, $this->orderDirectionDefaultForSearch);
 
 			// cria paginação e limite de registros
-			if ($this->hasPagination)
+			if ($canProcessData)
 			{
-				$pagination = new CPagination( $model->count($this->criteriaForSearch) );
-				$pagination->setCurrentPage($this->formSearch->page-1);
-				$pagination->setPageSize($this->arrRowCount[$this->formSearch->rowCount]);
+				if ($this->hasPagination)
+				{
+					$pagination = new CPagination( $model->count($this->criteriaForSearch) );
+					$pagination->setCurrentPage($this->formSearch->page-1);
+					$pagination->setPageSize($this->arrRowCount[$this->formSearch->rowCount]);
 
-				$this->criteriaForSearch->offset = ($pagination->getCurrentPage() * $pagination->getPageSize());
-				$this->criteriaForSearch->limit  = $pagination->getPageSize();
+					$this->criteriaForSearch->offset = ($pagination->getCurrentPage() * $pagination->getPageSize());
+					$this->criteriaForSearch->limit  = $pagination->getPageSize();
 
-				$pagination->params = $this->arrParametersUrl;
+					$pagination->params = $this->arrParametersUrl;
+				}
 			}
 
 			// grava os objetos de pesquisa
@@ -86,7 +91,12 @@ class AdminFormController extends AdminController
 			}
 
 			// cria objeto para o form
-			$list = $model->findAll($this->criteriaForSearch);
+			$list = array();
+
+			if ($canProcessData)
+			{
+				$list = $model->findAll($this->criteriaForSearch);
+			}
 			
 			// dados a serem renderizados
 			$this->renderData = array(
@@ -359,7 +369,12 @@ class AdminFormController extends AdminController
 	{
 		return true;
 	}
-		
+
+	protected function actionIndexCanProcessData()
+	{
+		return true;
+	}
+
 	protected function beforeActionView()
 	{
 		return true;
@@ -409,10 +424,15 @@ class AdminFormController extends AdminController
 	{
 		return true;
 	}
-	
+
 	protected function getFormData()
 	{
 		return isset($_POST[$this->formModel]) ? $_POST[$this->formModel] : null;
+	}
+
+	protected function getFormSearchData()
+	{
+		return isset($_POST[$this->formSearchModel]) ? $_POST[$this->formSearchModel] : null;
 	}
 
 }
