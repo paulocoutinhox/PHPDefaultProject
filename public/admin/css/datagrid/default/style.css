@@ -44,6 +44,11 @@
 	background-color:#F3F3F3;
 }
 
+.datagrid tr.totalizer td {
+	font-weight:bold !important;
+	background-color:#F3F3F3;
+}
+
 .datagrid tr.alt {
 	background-color:#e4ecf5;
 }
