@@ -18,7 +18,7 @@ return array(
 	),
 
 	'params' => array(
-		'adminEmail'		 	   => 'paulo@prsolucoes.com',
+		'adminEmail'		 	   => 'youremail@gmail.com',
 		'poweredText'		 	   => 'Powered by PRSoluções',
 		'currencyFormat'	 	   => '#,##0.00',
 		'percentFormat'	 	       => '0.00',
@@ -27,14 +27,14 @@ return array(
 		
 		'mailHost'                 => 'smtp.gmail.com',
 		'mailPort'                 => '587',
-		'mailUsername'             => 'paulo@prsolucoes.com',
+		'mailUsername'             => 'youremail@gmail.com',
 		'mailPassword'             => '',
 		'mailAuth'                 => true,
 		'mailSMTP'                 => true,
 		'mailSecureMode'           => 'tls',
 		'mailLanguage'             => 'br',
 		'mailCharset'              => 'UTF-8',
-		'mailFromEmail'            => 'paulo@prsolucoes.com',
-		'mailFromName'             => 'paulo.coutinho',
+		'mailFromEmail'            => 'youremail@gmail.com',
+		'mailFromName'             => 'Your Name',
 	),
 );
