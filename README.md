@@ -26,5 +26,7 @@ Installation
 
 7 - ./yiic migrate
 
-8 - Open: http://localhost/PHPDefaultProject
+8 - Open: http://localhost/PHPDefaultProject for Frontend and http://localhost/PHPDefaultProject/admin for the Admin area
+
+** The default login for admin is: admin / teste
 
