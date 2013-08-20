@@ -13,11 +13,18 @@ Installation
 =================
 
 1 - git clone ....
+
 2 - Edit file "protected/config/themes/default.php" and change database connection array (connectionString, username, password).
+
 3 - cd protected/bash
+
 4 - sh create-contents.sh
+
 5 - sh clear-contents.sh
+
 6 - cd ..
+
 7 - ./yiic migrate
+
 8 - Open: http://localhost/PHPDefaultProject
 
