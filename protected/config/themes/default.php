@@ -1,16 +1,16 @@
 <?php
 return array(
-	'name'              => 'TITULO',
+	'name'              => 'PHP DEFAULT PROJECT',
 	'theme'             => 'default',
 	'defaultController' => 'home',
 	
 	// application components
 	'components' => array(
 		'db' => array(
-			'connectionString'   => 'mysql:host=localhost;dbname=nome_banco', //;unix_socket=/tmp/mysql.sock;
+			'connectionString'   => 'mysql:host=localhost;dbname=NAME-OF-DATABASE', //;unix_socket=/tmp/mysql.sock;
 			'emulatePrepare'     => true,
-			'username'           => 'root',
-			'password'           => 'vertrigo',
+			'username'           => 'DATABASE-USERNAME',
+			'password'           => 'DATABASE-PASSWORD',
 			'charset'            => 'utf8',
 			'enableProfiling'    => YII_DEBUG,
 			'enableParamLogging' => YII_DEBUG
