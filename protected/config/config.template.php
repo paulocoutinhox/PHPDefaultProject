@@ -7,7 +7,7 @@ return array(
 	// application components
 	'components' => array(
 		'db' => array(
-			'connectionString'   => 'mysql:host=localhost;dbname=NAME-OF-DATABASE', //;unix_socket=/tmp/mysql.sock;
+			'connectionString'   => 'mysql:host=127.0.0.1;dbname=NAME-OF-DATABASE', //;unix_socket=/tmp/mysql.sock;
 			'emulatePrepare'     => true,
 			'username'           => 'DATABASE-USERNAME',
 			'password'           => 'DATABASE-PASSWORD',

@@ -11,6 +11,7 @@
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/public/<?php echo($this->getModule()->getId()); ?>/css/blueprint/ie.css" media="screen, projection" />
 	<![endif]-->
 
+	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/public/<?php echo($this->getModule()->getId()); ?>/libs/fancybox/jquery.fancybox.css" />
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/public/<?php echo($this->getModule()->getId()); ?>/css/custom/form.css" />
     <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/public/<?php echo($this->getModule()->getId()); ?>/css/custom/main.css" />
     <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/public/<?php echo($this->getModule()->getId()); ?>/css/custom/menu.css" />
@@ -18,13 +19,13 @@
     <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/public/<?php echo($this->getModule()->getId()); ?>/css/custom/dropDownMenu.css" />
     <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/public/<?php echo($this->getModule()->getId()); ?>/css/datagrid/default/style.css" />
 
-	<script src="<?php echo Yii::app()->request->baseUrl; ?>/public/<?php echo($this->getModule()->getId()); ?>/js/jquery/jquery-1.9.1.min.js" type="text/javascript"></script>
+	<script src="<?php echo Yii::app()->request->baseUrl; ?>/public/<?php echo($this->getModule()->getId()); ?>/js/jquery/jquery-1.10.2.min.js" type="text/javascript"></script>
 	<script src="<?php echo Yii::app()->request->baseUrl; ?>/public/<?php echo($this->getModule()->getId()); ?>/js/jquery/jquery.form.js" type="text/javascript"></script>
 	<script src="<?php echo Yii::app()->request->baseUrl; ?>/public/<?php echo($this->getModule()->getId()); ?>/js/jquery/jquery.autocomplete.js" type="text/javascript"></script>
 	<script src="<?php echo Yii::app()->request->baseUrl; ?>/public/<?php echo($this->getModule()->getId()); ?>/js/jquery/jquery.maskmoney.js" type="text/javascript"></script>
 	<script src="<?php echo Yii::app()->request->baseUrl; ?>/public/<?php echo($this->getModule()->getId()); ?>/js/jquery/jquery.password.strengh.js" type="text/javascript"></script>
 	<script src="<?php echo Yii::app()->request->baseUrl; ?>/public/<?php echo($this->getModule()->getId()); ?>/js/jquery/jquery.timers.js" type="text/javascript"></script>
-	<script src="<?php echo Yii::app()->request->baseUrl; ?>/public/<?php echo($this->getModule()->getId()); ?>/js/fancybox/jquery.fancybox.js" type="text/javascript"></script>
+	<script src="<?php echo Yii::app()->request->baseUrl; ?>/public/<?php echo($this->getModule()->getId()); ?>/libs/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
 	<script src="<?php echo Yii::app()->request->baseUrl; ?>/public/<?php echo($this->getModule()->getId()); ?>/js/dropDownMenu.js" type="text/javascript"></script>
     <script src="<?php echo Yii::app()->request->baseUrl; ?>/public/<?php echo($this->getModule()->getId()); ?>/js/main.js" type="text/javascript"></script>
 
@@ -93,6 +94,22 @@
                         <?php $this->endWidget(); ?>
                         <!-- FIM: MENU -->
                         
+                        <br />
+
+                        <!-- RELATORIOS -->
+                        <?php if(User::hasPermission('default', 'report_menu')) { ?>
+
+                            <?php $this->beginWidget('application.modules.admin.components.BoxWidget', array('title' => 'Relatórios', 'width' => '180px', 'image' => 'ico_relatorio.png')); ?>
+                            <ul class="menu">
+                                <?php if(User::hasPermission('reportUsers', 'menu')) { ?>
+                                    <li class="imgArrow"><a href="<?php echo $this->createUrl('/admin/reportUsers'); ?>">Usuários</a></li>
+                                <?php } ?>
+                            </ul>
+                            <?php $this->endWidget(); ?>
+
+                        <?php } ?>
+                        <!-- FIM: RELATORIOS -->
+
                         <br />
                                                          
                         <!-- SEGURANCA -->

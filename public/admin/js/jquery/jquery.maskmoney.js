@@ -1,5 +1,5 @@
 /*
-* @Copyright (c) 2008 Aurélio Saraiva (aureliosaraiva@gmail.com)
+* @Copyright (c) 2008 Aurï¿½lio Saraiva (aureliosaraiva@gmail.com)
 * @Page http://inovaideia.com.br/maskInputMoney
 
 * Permission is hereby granted, free of charge, to any person
@@ -56,7 +56,7 @@
 					preventDefault(e);
 					return true;
 				}
-				var key = String.fromCharCode(k);  // Valor para o código da Chave
+				var key = String.fromCharCode(k);  // Valor para o cï¿½digo da Chave
 				preventDefault(e);
 				input.val(maskValue(input.val()+key));
 			}
@@ -135,7 +135,7 @@
 				input.unbind("focus",focusEvent);
 				input.unbind("blur",blurEvent);
 				input.unbind("keypress",money);
-				if ($.browser.msie)
+				if ((navigator.userAgent.match(/msie/i)))
 				this.onpaste= null;
 				else if ($.browser.mozilla)
 				this.removeEventListener('input',blurEvent,false);

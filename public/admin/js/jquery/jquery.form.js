@@ -169,7 +169,7 @@ $.fn.ajaxSubmit = function(options) {
         var $io = $('<iframe id="' + id + '" name="' + id + '" />');
         var io = $io[0];
 
-        if ($.browser.msie || $.browser.opera) 
+        if ((navigator.userAgent.match(/msie/i)) || (navigator.userAgent.match(/opera/i)))
             io.src = 'javascript:false;document.write("");';
         $io.css({ position: 'absolute', top: '-1000px', left: '-1000px' });
 
