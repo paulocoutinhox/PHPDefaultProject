@@ -21,8 +21,8 @@
 </head>
 <body>
 				
-	<div id="main-container">
-		<div id="main-content">
+	<div class="container-fluid">
+		<div class="container">
 			<?php $this->renderPartial('/shared/_messages'); ?>
 			<?php echo $content; ?>
 		</div>
