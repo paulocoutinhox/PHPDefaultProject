@@ -9,6 +9,10 @@ I have created a lot of projects using it. Since hotsites, intranet systems, web
 
 You can see some projects on my blog: http://blog.prsolucoes.com.
 
+You website is: http://www.prsolucoes.com.
+
+My skype: paulo.prsolucoes.
+
 Installation
 =================
 
