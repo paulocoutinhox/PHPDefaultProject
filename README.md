@@ -13,6 +13,22 @@ You website is: http://www.prsolucoes.com.
 
 My skype: paulo.prsolucoes.
 
+Some features
+=================
+
+- Frontend with bootstrap last version
+- Last jQuery 1.X included
+- Debug and Config files ready for multi-environment
+- Powerfull admin area
+- Own ACL implementation
+- Admin area with user management, dynamic content management, reports, profile, groups, permissions and ACL ready, CSS for print, CSS for grid
+- Frontend with customer login, customer register, customer recovery password
+- Extensions to send e-mail with layout support
+- Some ready rules
+- Configuration for real applications
+- Português/Brasil already configured 
+
+
 Installation
 =================
 
