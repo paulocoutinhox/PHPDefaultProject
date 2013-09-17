@@ -7,4 +7,5 @@ public/assets/*
 protected/runtime
 protected/runtime/*
 protected/config/config.php
+protected/config/debug.php
 .idea
