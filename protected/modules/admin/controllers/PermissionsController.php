@@ -178,8 +178,14 @@ class PermissionsController extends AdminFormController
 											  'index'		      => 'Exibição inicial',
 											  )
 						  );
-		
-		
+
+		$modules[] = array('module_name' => 'reportUsers',
+						   'module_description' => 'Relatório de Usuários',
+						   'actions' => array('menu'   	   	      => 'Visualizar o menu deste módulo',
+											  'index'		      => 'Exibição inicial',
+											  )
+						  );
+
 		return $modules;
 	}
 
