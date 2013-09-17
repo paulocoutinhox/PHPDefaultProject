@@ -19,7 +19,7 @@ $config = array(
 	'modules' => array(
 		'gii' => array(
 			'class'    => 'system.gii.GiiModule',
-			'password' => 'qqaazz',
+			'password' => '#$%!@gii@!#$%',
 		),
 		'admin' => array(
 			'defaultController' => 'home',
@@ -60,7 +60,7 @@ $config = array(
 				),
 				array(
 					'class'     => 'ext.yii-debug-toolbar.YiiDebugToolbarRoute',
-					'ipFilters' => array(),
+					'ipFilters' => array('localhost', '127.0.0.1', '::1'),
 				),
 			),
 		),		
@@ -83,4 +83,4 @@ $config = array(
 	),
 );
 
-return CMap::mergeArray($config, require(dirname(__FILE__) . '/themes/' . $theme . '.php'));
+return CMap::mergeArray($config, require(dirname(__FILE__) . '/config.php'));

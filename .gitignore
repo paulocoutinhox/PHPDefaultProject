@@ -6,4 +6,5 @@ public/assets/*
 !public/assets/index.html
 protected/runtime
 protected/runtime/*
+protected/config/config.php
 .idea
