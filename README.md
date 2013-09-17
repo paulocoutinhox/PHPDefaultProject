@@ -33,5 +33,7 @@ Installation
 8 - Open: http://localhost/PHPDefaultProject for Frontend and http://localhost/PHPDefaultProject/admin for the Admin area
 
 ** The default login for admin is: admin / teste
+
 ** The config.php and debug.php files re not commited, it let you have in production environment your own config and debug files and make pull from repository without modify your config and debug files.
+
 ** In production change in file protected/config/debug.php "define('YII_DEBUG', true)" to "define('YII_DEBUG', false)"
