@@ -14,19 +14,24 @@ Installation
 
 1 - git clone ....
 
-2 - Edit file "protected/config/themes/default.php" and change database connection array (connectionString, username, password).
+2 - Generate config file: "cp protected/config/config.template.php protected/config/config.php"
 
-3 - cd protected/bash
+3 - Generate debug file: "cp protected/config/debug.template.php protected/config/debug.php"
 
-4 - sh create-contents.sh
+4 - Edit file "protected/config/config.php" and change database connection array (connectionString, username, password).
 
-5 - sh clear-contents.sh
+5 - cd protected/bash
 
-6 - cd ..
+6 - sh create-contents.sh
+
+7 - sh clear-contents.sh
+
+8 - cd ..
 
 7 - ./yiic migrate
 
 8 - Open: http://localhost/PHPDefaultProject for Frontend and http://localhost/PHPDefaultProject/admin for the Admin area
 
 ** The default login for admin is: admin / teste
-
+** The config.php and debug.php files re not commited, it let you have in production environment your own config and debug files and make pull from repository without modify your config and debug files.
+** In production change in file protected/config/debug.php "define('YII_DEBUG', true)" to "define('YII_DEBUG', false)"
