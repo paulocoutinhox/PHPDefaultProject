@@ -97,7 +97,7 @@
                         <br />
 
                         <!-- RELATORIOS -->
-                        <?php if(User::hasPermission('default', 'report_menu')) { ?>
+                        <?php if(User::hasPermission('home', 'report_menu')) { ?>
 
                             <?php $this->beginWidget('application.modules.admin.components.BoxWidget', array('title' => 'Relatórios', 'width' => '180px', 'image' => 'ico_relatorio.png')); ?>
                             <ul class="menu">
@@ -113,7 +113,7 @@
                         <br />
                                                          
                         <!-- SEGURANCA -->
-                        <?php if(User::hasPermission('default', 'security_menu')) { ?>
+                        <?php if(User::hasPermission('home', 'security_menu')) { ?>
                         
                         <?php $this->beginWidget('application.modules.admin.components.BoxWidget', array('title' => 'Segurança', 'width' => '180px', 'image' => 'ico_seguranca.gif')); ?>
                             <ul class="menu">
