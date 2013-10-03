@@ -171,18 +171,21 @@ class AdminFormController extends AdminController
 			{
 				$this->formModelForSave->setAttributes($this->getFormData());
 
-				if ($this->formModelForSave->validate())
+				if ($this->beforeValidateOnSaveModel())
 				{
-					$this->modelForSave->setAttributes($this->formModelForSave->getAttributes());
-
-					if ($this->beforeSaveModel())
+					if ($this->formModelForSave->validate())
 					{
-						$this->modelForSave->save();
+						$this->modelForSave->setAttributes($this->formModelForSave->getAttributes());
 
-						if ($this->afterSaveModel())
+						if ($this->beforeSaveModel())
 						{
-							UserUtil::getAdminWebUser()->setFlash(Constants::SUCCESS_MESSAGE_ID, ConstantMessages::addedRegistry($this->modelForSave->id));
-							$this->redirect(array('/admin/' . $this->getId()));
+							$this->modelForSave->save();
+
+							if ($this->afterSaveModel())
+							{
+								UserUtil::getAdminWebUser()->setFlash(Constants::SUCCESS_MESSAGE_ID, ConstantMessages::addedRegistry($this->modelForSave->id));
+								$this->redirect(array('/admin/' . $this->getId()));
+							}
 						}
 					}
 				}
@@ -190,6 +193,7 @@ class AdminFormController extends AdminController
 			else
 			{
 				$this->formModelForSave->clearErrors();
+				$this->afterLoadModelForSave();
 			}
 
 			$this->renderData = array(
@@ -219,18 +223,21 @@ class AdminFormController extends AdminController
 				$this->modelForUpdate = new $this->model;
 				$this->modelForUpdate = $this->modelForUpdate->findByPk($this->formModelForUpdate->id);
 
-				if ($this->formModelForUpdate->validate())
+				if ($this->beforeValidateOnUpdateModel())
 				{
-					$this->modelForUpdate->setAttributes($this->getFormData());
-					
-					if ($this->beforeUpdateModel())
+					if ($this->formModelForUpdate->validate())
 					{
-						$this->modelForUpdate->update();
-						
-						if ($this->afterUpdateModel())
+						$this->modelForUpdate->setAttributes($this->formModelForUpdate->getAttributes());
+
+						if ($this->beforeUpdateModel())
 						{
-							UserUtil::getAdminWebUser()->setFlash(Constants::SUCCESS_MESSAGE_ID, ConstantMessages::updatedRegistry($this->modelForUpdate->id));
-							$this->redirect(array('/admin/' . $this->getId()));							
+							$this->modelForUpdate->update();
+
+							if ($this->afterUpdateModel())
+							{
+								UserUtil::getAdminWebUser()->setFlash(Constants::SUCCESS_MESSAGE_ID, ConstantMessages::updatedRegistry($this->modelForUpdate->id));
+								$this->redirect(array('/admin/' . $this->getId()));
+							}
 						}
 					}
 				}
@@ -260,6 +267,7 @@ class AdminFormController extends AdminController
 					{
 						$this->formModelForUpdate->setAttributes($this->modelForUpdate->getAttributes());
 						$this->formModelForUpdate->validate();
+						$this->afterLoadModelForUpdate();
 					}
 				}
 			}
@@ -421,6 +429,26 @@ class AdminFormController extends AdminController
 	}
 	
 	protected function afterUpdateModel()
+	{
+		return true;
+	}
+
+	protected function beforeValidateOnSaveModel()
+	{
+		return true;
+	}
+
+	protected function beforeValidateOnUpdateModel()
+	{
+		return true;
+	}
+
+	protected function afterLoadModelForSave()
+	{
+		return true;
+	}
+
+	protected function afterLoadModelForUpdate()
 	{
 		return true;
 	}
