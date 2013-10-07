@@ -3,5 +3,5 @@
 </h1>
 
 <p>
-    Change This Template (/themes/<?php echo(Yii::app()->theme->name); ?>/<?php echo($this->getId()); ?>/<?php echo($this->getAction()->getId()); ?>.php)
+    Change This Template (/themes/<?php echo(Yii::app()->theme->name); ?>/views/<?php echo($this->getId()); ?>/<?php echo($this->getAction()->getId()); ?>.php)
 </p>
