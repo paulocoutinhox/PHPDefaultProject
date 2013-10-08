@@ -11,6 +11,9 @@ class AdminModule extends CWebModule
             'application.modules.admin.components.*',
 			'application.modules.admin.controllers.*',
 		));
+		
+		$cs = Yii::app()->getClientScript();
+		$cs->scriptMap = array('jquery.js' => false);
 	}
 
 	public function beforeControllerAction($controller, $action)
