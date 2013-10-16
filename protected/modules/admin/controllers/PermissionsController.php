@@ -3,10 +3,10 @@
 class PermissionsController extends AdminFormController
 {
 	
-	protected $moduleTitle    = 'Permissões';
-	protected $formModel      = 'AdminFormPermission';
+	protected $moduleTitle     = 'Permissões';
+	protected $formModel       = 'AdminFormPermission';
 	protected $formSearchModel = 'AdminFormSearchPermission';
-	protected $model          = 'Permission';
+	protected $model           = 'Permission';
 	
     public function actionIndex()
 	{
@@ -64,62 +64,74 @@ class PermissionsController extends AdminFormController
 			$modules = array();
 
 			// permissões interna do sistema - não alterar
-			$modules[] = array('module_name' => 'groups',
-							   'module_description' => 'Grupos',
-							   'actions' => array('menu' => 'Visualizar o menu deste módulo',
-												  'add'    => 'Adicionar',
-												  'update' => 'Alterar',
-												  'delete' => 'Excluir',
-												  'view'   => 'Visualizar',
-												  'index'  => 'Exibição inicial'
-												  )
-							  );
+			$modules[] = array(
+				'module_name' => 'groups',
+				'module_description' => 'Grupos',
+				'actions' => array(
+					'menu'   => 'Visualizar o menu deste módulo',
+					'add'    => 'Adicionar',
+					'update' => 'Alterar',
+					'delete' => 'Excluir',
+					'view'   => 'Visualizar',
+					'index'  => 'Exibição inicial'
+				)
+			);
 
-			$modules[] = array('module_name' => 'profile',
-							   'module_description' => 'Meus dados',
-							   'actions' => array('menu' => 'Visualizar o menu deste módulo',
-												  'index' => 'Alteração dos dados'
-												  )
-							  );
+			$modules[] = array(
+				'module_name' => 'profile',
+				'module_description' => 'Meus dados',
+				'actions' => array(
+					'menu'  => 'Visualizar o menu deste módulo',
+					'index' => 'Alteração dos dados'
+				)
+			);
 
-			$modules[] = array('module_name' => 'permissions',
-							   'module_description' => 'Permissões',
-							   'actions' => array('menu' => 'Visualizar o menu deste módulo',
-												  'add'    => 'Adicionar',
-												  'update' => 'Alterar',
-												  'delete' => 'Excluir',
-												  'view'   => 'Visualizar',
-												  'index'  => 'Exibição inicial',
-												  'generatepermissions' => 'Recriar todas as permissões do sistema'
-												  )
-							  );
+			$modules[] = array(
+				'module_name' => 'permissions',
+				'module_description' => 'Permissões',
+				'actions' => array(
+					'menu'                => 'Visualizar o menu deste módulo',
+					'add'                 => 'Adicionar',
+					'update'              => 'Alterar',
+					'delete'              => 'Excluir',
+					'view'                => 'Visualizar',
+					'index'               => 'Exibição inicial',
+					'generatepermissions' => 'Recriar todas as permissões do sistema'
+				)
+			);
 
-			$modules[] = array('module_name' => 'users',
-							   'module_description' => 'Usuários',
-							   'actions' => array('menu' => 'Visualizar o menu deste módulo',
-												  'add'    => 'Adicionar',
-												  'update' => 'Alterar',
-												  'delete' => 'Excluir',
-												  'view'   => 'Visualizar',
-												  'index'  => 'Exibição inicial'
-												  )
-							  );
+			$modules[] = array(
+				'module_name' => 'users',
+				'module_description' => 'Usuários',
+				'actions' => array(
+					'menu'   => 'Visualizar o menu deste módulo',
+					'add'    => 'Adicionar',
+					'update' => 'Alterar',
+					'delete' => 'Excluir',
+					'view'   => 'Visualizar',
+					'index'  => 'Exibição inicial'
+				)
+			);
 
-			$modules[] = array('module_name' => 'home',
-							   'module_description' => 'Painel administrativo do sistema',
-							   'actions' => array('index'         => 'Página inicial',
-												  'security_menu' => 'Exibição do menu de segurança',
-												  'report_menu'   => 'Exibição do menu de relatório',
-												 )
-							  );
+			$modules[] = array(
+				'module_name' => 'home',
+				'module_description' => 'Painel administrativo do sistema',
+				'actions' => array(
+					'index' => 'Página inicial',
+					'security_menu' => 'Exibição do menu de segurança',
+					'report_menu'   => 'Exibição do menu de relatório',
+				)
+			);
 
-			$modules[] = array('module_name' => 'help',
-							   'module_description' => 'Página de ajuda',
-							   'actions' => array('index' => 'Página inicial')
-							  );
+			$modules[] = array(
+				'module_name' => 'help',
+				'module_description' => 'Página de ajuda',
+				'actions' => array(
+					'index' => 'Página inicial'
+				)
+			);
 
 			$modules = array_merge($modules, $this->getOtherPermissions());
-
 
 			if (isset($_POST['truncateTable']) && (int)$_POST['truncateTable'] == 1)
 			{
@@ -167,24 +179,28 @@ class PermissionsController extends AdminFormController
 	private function getOtherPermissions()
 	{
 		$modules = array();
-		
-		$modules[] = array('module_name' => 'contents',
-						   'module_description' => 'Conteúdos',
-						   'actions' => array('menu'   	   	      => 'Visualizar o menu deste módulo',
-											  'add'    	   	      => 'Adicionar',
-											  'update' 	   	      => 'Alterar',
-											  'delete' 	   	      => 'Excluir',
-											  'view'   	   	      => 'Visualizar',
-											  'index'		      => 'Exibição inicial',
-											  )
-						  );
 
-		$modules[] = array('module_name' => 'reportUsers',
-						   'module_description' => 'Relatório de Usuários',
-						   'actions' => array('menu'   	   	      => 'Visualizar o menu deste módulo',
-											  'index'		      => 'Exibição inicial',
-											  )
-						  );
+		$modules[] = array(
+			'module_name' => 'contents',
+			'module_description' => 'Conteúdos',
+			'actions' => array(
+				'menu'   => 'Visualizar o menu deste módulo',
+				'add'    => 'Adicionar',
+				'update' => 'Alterar',
+				'delete' => 'Excluir',
+				'view'   => 'Visualizar',
+				'index'  => 'Exibição inicial',
+			)
+		);
+
+		$modules[] = array(
+			'module_name' => 'reportUsers',
+			'module_description' => 'Relatório de Usuários',
+			'actions' => array(
+				'menu'  => 'Visualizar o menu deste módulo',
+				'index' => 'Exibição inicial',
+			)
+		);
 
 		return $modules;
 	}

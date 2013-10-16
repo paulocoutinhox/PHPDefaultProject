@@ -3,44 +3,44 @@
 class AdminFormController extends AdminController
 {
 	protected $moduleTitle = 'AdminFormController';
-	
+
 	protected $formModel;
 	protected $formSearchModel;
 	protected $model;
 	protected $form;
 	protected $formSearch;
-	
+
 	protected $arrConditions;
-    protected $arrParameters;
-    protected $arrParametersUrl;
+	protected $arrParameters;
+	protected $arrParametersUrl;
 	protected $arrOrderField;
 	protected $arrRowCount;
 	protected $arrOrderDirection;
 	protected $orderFieldsForSearch;
 	protected $orderFieldDefaultForSearch;
 	protected $orderDirectionDefaultForSearch;
-	
+
 	protected $modelForSave;
 	protected $formModelForSave;
 	protected $modelForUpdate;
 	protected $formModelForUpdate;
-    protected $modelForView;
-	
+	protected $modelForView;
+
 	protected $renderData;
 
-    protected $criteriaForSearch;
+	protected $criteriaForSearch;
 
 	protected $storeAttributes = true;
 	protected $hasPagination   = true;
 
-    public function actionIndex()
+	public function actionIndex()
 	{
 		if ($this->beforeActionIndex() == true)
 		{
 			if ($this->criteriaForSearch == null)
-            {
-                $this->criteriaForSearch = new CDbCriteria();
-            }
+			{
+				$this->criteriaForSearch = new CDbCriteria();
+			}
 
 			$model                  = new $this->model;
 			$this->formSearch       = new $this->formSearchModel;
@@ -52,8 +52,8 @@ class AdminFormController extends AdminController
 
 			$this->createParameters();
 
-            $this->criteriaForSearch->condition = implode(' AND ', $this->arrConditions);
-            $this->criteriaForSearch->params    = $this->arrParameters;
+			$this->criteriaForSearch->condition = implode(' AND ', $this->arrConditions);
+			$this->criteriaForSearch->params    = $this->arrParameters;
 
 			$canProcessData = $this->actionIndexCanProcessData();
 
@@ -97,7 +97,7 @@ class AdminFormController extends AdminController
 			{
 				$list = $model->findAll($this->criteriaForSearch);
 			}
-			
+
 			// dados a serem renderizados
 			$this->renderData = array(
 				'moduleTitle'       => $this->moduleTitle,
@@ -108,63 +108,67 @@ class AdminFormController extends AdminController
 				'arrRowCount'       => $this->arrRowCount,
 				'pagination'        => ($this->hasPagination ? $pagination : null),
 			);
-			
+
 			if ($this->afterActionIndex())
 			{
 				$this->render($this->getAction()->getId(), $this->renderData);
 			}
 		}
 	}
-    	
-    public function actionView()
+
+	public function actionView()
 	{
 		if ($this->beforeActionView() == true)
 		{
-	
+
 			// recebe ID do registro
-			$id = isset($_GET['id']) ? (int)$_GET['id'] : 0;   
-        
+			$id = isset($_GET['id']) ? (int)$_GET['id'] : 0;
+
 			// verifica se é um registro válido
-			if ($id <= 0) 
+			if ($id <= 0)
 			{
 				UserUtil::getAdminWebUser()->setFlash(Constants::ERROR_MESSAGE_ID, ConstantMessages::invalidRegistry());
-				$this->redirect(array('/admin/' . $this->getId()));            
+				$this->redirect(array('/admin/' . $this->getId()));
 			}
 			else
 			{
 				// tenta instanciar objeto pelo ID recebido
 				$model = new $this->model;
-                $this->modelForView = $model->findByPk($id);
+				$form  = new $this->formModel;
+
+				$this->modelForView = $model->findByPk($id);
 
 				if (!$this->modelForView)
 				{
 					UserUtil::getAdminWebUser()->setFlash(Constants::ERROR_MESSAGE_ID, ConstantMessages::invalidRegistry());
-					$this->redirect(array('/admin/' . $this->getId()));                    
-				} 
+					$this->redirect(array('/admin/' . $this->getId()));
+				}
 				else
 				{
-                    $this->modelForView->clearErrors();
-					
+					$this->modelForView->clearErrors();
+					$form->clearErrors();
+
 					$this->renderData = array(
 						'moduleTitle' => $this->moduleTitle,
 						'model'       => $this->modelForView,
+						'form'        => $form,
 					);
-					
+
 					if ($this->afterActionView() == true)
 					{
 						$this->render($this->getAction()->getId(), $this->renderData);
 					}
 				}
 			}
-			
+
 		}
-    }
-	    
-    public function actionAdd()
+	}
+
+	public function actionAdd()
 	{
 		$this->modelForSave     = new $this->model;
 		$this->formModelForSave = new $this->formModel;
-			
+
 		if ($this->beforeActionAdd() == true)
 		{
 			if ($this->getFormData() != null)
@@ -206,15 +210,15 @@ class AdminFormController extends AdminController
 			{
 				$this->render($this->getAction()->getId(), $this->renderData);
 			}
-			
+
 		}
-    }
-    
-    public function actionUpdate()
+	}
+
+	public function actionUpdate()
 	{
 		$this->formModelForUpdate = new $this->formModel;
 		$this->modelForUpdate = null;
-			
+
 		if ($this->beforeActionUpdate() == true)
 		{
 			if ($this->getFormData() != null)
@@ -266,38 +270,42 @@ class AdminFormController extends AdminController
 					else
 					{
 						$this->formModelForUpdate->setAttributes($this->modelForUpdate->getAttributes());
-						$this->formModelForUpdate->validate();
-						$this->afterLoadModelForUpdate();
+
+						if ($this->beforeValidateFormModelForUpdate())
+						{
+							$this->formModelForUpdate->validate();
+							$this->afterLoadModelForUpdate();
+						}
 					}
 				}
 			}
-			
+
 			$this->renderData = array(
 				'moduleTitle' => $this->moduleTitle,
 				'form'        => $this->formModelForUpdate,
 				'model'       => $this->modelForUpdate,
 			);
-			
+
 			if ($this->afterActionUpdate() == true)
 			{
 				$this->render($this->getAction()->getId(), $this->renderData);
 			}
 		}
-    }
-	    
-    public function actionDelete()
+	}
+
+	public function actionDelete()
 	{
-        // verifica se é para exclui registros selecionados via checkbox
-        if (isset($_POST['chkRow']) && count($_POST['chkRow']) > 0)
-        {
-            foreach($_POST['chkRow'] as $id)
-            {
-            	$model = new $this->model;
+		// verifica se é para exclui registros selecionados via checkbox
+		if (isset($_POST['chkRow']) && count($_POST['chkRow']) > 0)
+		{
+			foreach($_POST['chkRow'] as $id)
+			{
+				$model = new $this->model;
 				$model = $model->findByPk($id);
-			
-                if ($model)
-                {
-                    $result = $model->canModifyOrDelete();
+
+				if ($model)
+				{
+					$result = $model->canModifyOrDelete();
 
 					if ($result['success'] == false)
 					{
@@ -307,39 +315,43 @@ class AdminFormController extends AdminController
 					}
 					else
 					{
-						$model->delete();
+						if ($this->beforeDeleteModel($model))
+						{
+							$model->delete();
+							$this->afterDeleteModel();
+						}
 					}
-                }
-            }
+				}
+			}
 
-            UserUtil::getAdminWebUser()->setFlash(Constants::SUCCESS_MESSAGE_ID, ConstantMessages::deletedRegistries());
-            $this->redirect(array('/admin/' . $this->getId()));
-        }
+			UserUtil::getAdminWebUser()->setFlash(Constants::SUCCESS_MESSAGE_ID, ConstantMessages::deletedRegistries());
+			$this->redirect(array('/admin/' . $this->getId()));
+		}
 
-        // recebe ID do registro
-        $id = isset($_GET['id']) ? (int)$_GET['id'] : 0;
+		// recebe ID do registro
+		$id = isset($_GET['id']) ? (int)$_GET['id'] : 0;
 
-        // verifica se é um registro válido
-        if ($id <= 0)
-        {
-            UserUtil::getAdminWebUser()->setFlash(Constants::ERROR_MESSAGE_ID, ConstantMessages::invalidRegistry());
-            $this->redirect(array('/admin/' . $this->getId()));
-        }
-        else
-        {
-            // tenta instanciar objeto pelo ID recebido
-            $model = new $this->model;
+		// verifica se é um registro válido
+		if ($id <= 0)
+		{
+			UserUtil::getAdminWebUser()->setFlash(Constants::ERROR_MESSAGE_ID, ConstantMessages::invalidRegistry());
+			$this->redirect(array('/admin/' . $this->getId()));
+		}
+		else
+		{
+			// tenta instanciar objeto pelo ID recebido
+			$model = new $this->model;
 			$model = $model->findByPk($id);
-			
 
-            if (!$model)
-            {
-                UserUtil::getAdminWebUser()->setFlash(Constants::ERROR_MESSAGE_ID, ConstantMessages::invalidRegistry());
-                $this->redirect(array('/admin/' . $this->getId()));
-            }
-            else
-            {
-                $result = $model->canModifyOrDelete();
+
+			if (!$model)
+			{
+				UserUtil::getAdminWebUser()->setFlash(Constants::ERROR_MESSAGE_ID, ConstantMessages::invalidRegistry());
+				$this->redirect(array('/admin/' . $this->getId()));
+			}
+			else
+			{
+				$result = $model->canModifyOrDelete();
 
 				if ($result['success'] == false)
 				{
@@ -349,30 +361,34 @@ class AdminFormController extends AdminController
 				}
 				else
 				{
-					$model->delete();
+					if ($this->beforeDeleteModel($model))
+					{
+						$model->delete();
+						$this->afterDeleteModel();
+					}
 				}
 
-                UserUtil::getAdminWebUser()->setFlash(Constants::SUCCESS_MESSAGE_ID, ConstantMessages::deletedRegistry());
-                $this->redirect(array('/admin/' . $this->getId()));
-            }
-        }
-    }
-	
+				UserUtil::getAdminWebUser()->setFlash(Constants::SUCCESS_MESSAGE_ID, ConstantMessages::deletedRegistry());
+				$this->redirect(array('/admin/' . $this->getId()));
+			}
+		}
+	}
+
 	protected function createParameters()
 	{
-		
+
 	}
-	
+
 	protected function addToRenderData($key, $value)
 	{
 		$this->renderData = array_merge($this->renderData, array($key => $value));
 	}
-		
+
 	protected function beforeActionIndex()
 	{
 		return true;
 	}
-	
+
 	protected function afterActionIndex()
 	{
 		return true;
@@ -387,48 +403,58 @@ class AdminFormController extends AdminController
 	{
 		return true;
 	}
-	
+
 	protected function afterActionView()
 	{
 		return true;
 	}
-		
+
 	protected function beforeActionAdd()
 	{
 		return true;
 	}
-	
+
 	protected function afterActionAdd()
 	{
 		return true;
 	}
-	
+
 	protected function beforeActionUpdate()
 	{
 		return true;
 	}
-	
+
 	protected function afterActionUpdate()
 	{
 		return true;
 	}
-	
+
 	protected function beforeSaveModel()
 	{
 		return true;
 	}
-	
+
 	protected function afterSaveModel()
 	{
 		return true;
 	}
-	
+
 	protected function beforeUpdateModel()
 	{
 		return true;
 	}
-	
+
 	protected function afterUpdateModel()
+	{
+		return true;
+	}
+
+	protected function afterDeleteModel()
+	{
+		return true;
+	}
+
+	protected function beforeDeleteModel($model)
 	{
 		return true;
 	}
@@ -449,6 +475,11 @@ class AdminFormController extends AdminController
 	}
 
 	protected function afterLoadModelForUpdate()
+	{
+		return true;
+	}
+
+	protected function beforeValidateFormModelForUpdate()
 	{
 		return true;
 	}
