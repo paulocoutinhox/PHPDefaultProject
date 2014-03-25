@@ -23,7 +23,7 @@ class ComponentsForSearch
 		return $list;
 	}
 
-	public static function paramsForSearchQuery($form, $criteria, $arrParametersUrl, $defaultOrderField, $defaultOrderDirection)
+	public static function paramsForSearchQuery($form, $criteria, &$arrParametersUrl, $defaultOrderField, $defaultOrderDirection)
 	{
 		if ($form->rowCount && trim($form->rowCount) != '')
         {
