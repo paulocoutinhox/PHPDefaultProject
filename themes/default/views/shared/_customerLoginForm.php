@@ -1,21 +1,21 @@
 <!-- login form -->
-<?php echo CHtml::beginForm($this->createUrl('/login'), 'post', array('id' => 'form', 'class' => 'form-horizontal')); ?>
+<?php echo CHtml::beginForm($this->createUrl('/login'), 'post', array('id' => 'form', 'role' => 'form')); ?>
 
 <?php echo CHtml::errorSummary($form); ?>
 
-	<div class="control-group">
-		<?php echo CHtml::activeLabel($form, 'username', array('class' => 'control-label')); ?>
+	<div class="form-group">
+		<?php echo CHtml::activeLabel($form, 'username'); ?>
 		<div class="controls">
-			<?php echo CHtml::activeTextField($form, 'username', array('style' => 'width: 220px;', 'autocomplete' => 'off')); ?>
+			<?php echo CHtml::activeTextField($form, 'username', array('class' => 'form-control', 'autocomplete' => 'off')); ?>
 		</div>
 	</div>
-	<div class="control-group">
-		<?php echo CHtml::activeLabel($form, 'password', array('class' => 'control-label')); ?>
+	<div class="form-group">
+		<?php echo CHtml::activeLabel($form, 'password'); ?>
 		<div class="controls">
-			<?php echo CHtml::activePasswordField($form, 'password', array('style' => 'width: 220px;', 'class' => 'text', 'autocomplete' => 'off')); ?>
+			<?php echo CHtml::activePasswordField($form, 'password', array('class' => 'form-control', 'autocomplete' => 'off')); ?>
 		</div>
 	</div>
-	<div class="control-group">
+	<div class="form-group">
 		<div class="controls">
 			<p>
 				<a href="<?php echo($this->createUrl('/forgotPassword')); ?>" title="Esqueci a senha">Esqueci a senha</a>
@@ -25,9 +25,9 @@
 			</p>
 		</div>
 	</div>
-	<div class="control-group">
+	<div class="form-group">
 		<div class="controls">
-			<?php echo CHtml::submitButton('Continuar', array('class' => 'btn')); ?>
+			<?php echo CHtml::submitButton('Continuar', array('class' => 'btn btn-default')); ?>
 		</div>
 	</div>
 

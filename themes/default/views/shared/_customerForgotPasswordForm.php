@@ -1,22 +1,22 @@
 <!-- forgot password form -->
-<?php echo CHtml::beginForm($this->createUrl(''), 'post', array('id' => 'form', 'class' => 'form-horizontal')); ?>
+<?php echo CHtml::beginForm($this->createUrl(''), 'post', array('id' => 'form', 'role' => 'form')); ?>
 
 <?php echo CHtml::errorSummary($form); ?>
 
-	<div class="control-group">
-		<?php echo CHtml::activeLabel($form, 'email', array('class' => 'control-label')); ?>
+	<div class="form-group">
+		<?php echo CHtml::activeLabel($form, 'email'); ?>
 		<div class="controls">
-			<?php echo CHtml::activeTextField($form, 'email', array('style' => 'width: 220px;', 'autocomplete' => 'off')); ?>
+			<?php echo CHtml::activeTextField($form, 'email', array('class' => 'form-control')); ?>
 		</div>
 	</div>
-	<div class="control-group">
+	<div class="form-group">
 		<div class="controls">
 			<a href="<?php echo($this->createUrl('/login')); ?>" title="Voltar">Voltar</a>
 		</div>
 	</div>
-	<div class="control-group">
+	<div class="form-group">
 		<div class="controls">
-			<?php echo CHtml::submitButton('Continuar', array('class' => 'btn')); ?>
+			<?php echo CHtml::submitButton('Continuar', array('class' => 'btn btn-default')); ?>
 		</div>
 	</div>
 

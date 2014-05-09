@@ -6,13 +6,13 @@
 <?php endif; ?>
 
 <?php if(UserUtil::getDefaultWebUser()->hasFlash(Constants::ERROR_MESSAGE_ID)):?>
-	<p class="alert alert-error">
+	<p class="alert alert-danger">
 		<?php echo UserUtil::getDefaultWebUser()->getFlash(Constants::ERROR_MESSAGE_ID); ?>
 	</p>
 <?php endif; ?>
 
 <?php if(UserUtil::getDefaultWebUser()->hasFlash(Constants::INFO_MESSAGE_ID)):?>
-	<p class="alert alert-block">
+	<p class="alert alert-warning">
 		<?php echo UserUtil::getDefaultWebUser()->getFlash(Constants::INFO_MESSAGE_ID); ?>
 	</p>
 <?php endif; ?>

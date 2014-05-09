@@ -19,7 +19,7 @@
     <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/public/<?php echo($this->getModule()->getId()); ?>/css/custom/dropDownMenu.css" />
     <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/public/<?php echo($this->getModule()->getId()); ?>/css/datagrid/default/style.css" />
 
-	<script src="<?php echo Yii::app()->request->baseUrl; ?>/public/<?php echo($this->getModule()->getId()); ?>/js/jquery/jquery-1.10.2.min.js" type="text/javascript"></script>
+	<script src="<?php echo Yii::app()->request->baseUrl; ?>/public/<?php echo($this->getModule()->getId()); ?>/js/jquery/jquery-1.11.0.min.js" type="text/javascript"></script>
 	<script src="<?php echo Yii::app()->request->baseUrl; ?>/public/<?php echo($this->getModule()->getId()); ?>/js/jquery/jquery.form.js" type="text/javascript"></script>
 	<script src="<?php echo Yii::app()->request->baseUrl; ?>/public/<?php echo($this->getModule()->getId()); ?>/js/jquery/jquery.autocomplete.js" type="text/javascript"></script>
 	<script src="<?php echo Yii::app()->request->baseUrl; ?>/public/<?php echo($this->getModule()->getId()); ?>/js/jquery/jquery.maskmoney.js" type="text/javascript"></script>
