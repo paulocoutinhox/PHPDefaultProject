@@ -14,7 +14,15 @@ class RecoveryPasswordController extends SiteController
 		{
 			$form->token = $token;
 		}
-		
+
+		if (empty($form->token))
+		{
+			Yii::trace('Token não informado.');
+			UserUtil::getDefaultWebUser()->setFlash(Constants::ERROR_MESSAGE_ID, 'Token inválido.');
+
+			$this->redirect(array('/home/index'));
+		}
+
 		if($data)
         {
             $form->attributes = $data;

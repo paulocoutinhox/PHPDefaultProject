@@ -20,6 +20,7 @@
 	
 	<script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl; ?>/js/jquery/jquery-1.11.0.min.js"></script>
 	<script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl; ?>/libs/bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl; ?>/js/jquery/jquery.mask.min.js"></script>
 	<script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl; ?>/js/main.js"></script>
 </head>
 <body>
