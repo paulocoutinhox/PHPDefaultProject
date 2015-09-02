@@ -57,3 +57,7 @@ Installation
 ** The config.php and debug.php files re not commited, it let you have in production environment your own config and debug files and make pull from repository without modify your config and debug files.
 
 ** In production change in file protected/config/debug.php "define('YII_DEBUG', true)" to "define('YII_DEBUG', false)"
+
+Contributors
+=================
+@oakideas - Fabio Silva
